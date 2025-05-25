@@ -18,8 +18,6 @@ export function Header() {
     { name: "Catalogue", href: "/catalogue" },
     { name: "Nouveautés", href: "/nouveautes" },
     { name: "Promotions", href: "/promotions" },
-    { name: "À propos", href: "/a-propos" },
-    { name: "Contact", href: "/contact" },
   ]
 
   return (
