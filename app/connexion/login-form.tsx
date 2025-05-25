@@ -3,24 +3,40 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { toast } from "@/components/ui/sonner"
 
 export default function LoginForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simuler une connexion
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      // Simuler une connexion (remplacer par un appel réel à une API ici)
+      await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    console.log("Connexion avec:", { email, password })
-    setIsLoading(false)
+      // Exemple simple : si email et mot de passe sont non vides, considérer comme succès
+      if (email === "test@example.com" && password === "password") {
+        toast.success("Connexion réussie !")
+        setTimeout(() => {
+          router.push("/")
+        }, 1200)
+      } else {
+        toast.error("Email ou mot de passe incorrect.")
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue, veuillez réessayer.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
