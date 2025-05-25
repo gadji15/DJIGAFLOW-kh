@@ -27,7 +27,7 @@ async function getNewProducts() {
 }
 
 export default async function NewProductsPage() {
-  const newProducts = await getNewProducts()
+  const newProducts = (await getNewProducts()) || []
 
   return (
     <div className="flex flex-col min-h-screen">
