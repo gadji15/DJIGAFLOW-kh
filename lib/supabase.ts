@@ -402,10 +402,7 @@ export const getDataWithFallback = async <T>(
 }
 
 // Helper simplifié pour les requêtes
-export const queryData = async <T>(fallbackData: T)
-: Promise<T> =>
-{
-  \
+export const queryData = async <T>(fallbackData: T): Promise<T> => {
   // En mode démo, on retourne toujours les données de fallback
   if (!hasSupabaseConfig) {
     return fallbackData
