@@ -1,7 +1,7 @@
 import type React from "react"
 import { AdminSidebar } from "./components/admin-sidebar"
 import { AdminNavbar } from "./components/admin-navbar"
-import { MobileAdminLayout } from "./components/mobile-admin-layout"
+import MobileAdminLayout from "./components/mobile-admin-layout"
 import { SupabaseStatus } from "@/components/supabase-status"
 
 export default function AdminLayout({
