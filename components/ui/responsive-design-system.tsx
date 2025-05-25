@@ -193,17 +193,22 @@ interface ResponsiveCardProps extends VariantProps<typeof cardVariants> {
 }
 
 export function ResponsiveCard({ size, hover, variant, children, className, onClick }: ResponsiveCardProps) {
-  const Component = onClick ? motion.div : "div"
-
+  if (onClick) {
+    return (
+      <motion.div
+        className={cn(cardVariants({ size, hover, variant }), className)}
+        onClick={onClick}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {children}
+      </motion.div>
+    )
+  }
   return (
-    <Component
-      className={cn(cardVariants({ size, hover, variant }), className)}
-      onClick={onClick}
-      whileHover={onClick ? { scale: 1.02 } : undefined}
-      whileTap={onClick ? { scale: 0.98 } : undefined}
-    >
+    <div className={cn(cardVariants({ size, hover, variant }), className)}>
       {children}
-    </Component>
+    </div>
   )
 }
 
