@@ -1,6 +1,16 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useAuth } from "@/components/auth-provider"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -38,6 +48,7 @@ export function ProfessionalHeader() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const { user, loading, signOut } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -242,10 +253,42 @@ export function ProfessionalHeader() {
 
               {/* User Account - Desktop */}
               <div className="hidden lg:block">
-                <ResponsiveButton variant="gradient" size="md">
-                  <User className="h-4 w-4 mr-2" />
-                  Connexion
-                </ResponsiveButton>
+                {loading ? null : !user ? (
+                  <Link href="/connexion">
+                    <ResponsiveButton variant="gradient" size="md">
+                      <User className="h-4 w-4 mr-2" />
+                      Connexion
+                    </ResponsiveButton>
+                  </Link>
+                ) : (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Avatar className="h-10 w-10 cursor-pointer">
+                        <AvatarFallback>
+                          {user.email?.[0]?.toUpperCase() || "U"}
+                        </AvatarFallback>
+                      </Avatar>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-56">
+                      <DropdownMenuLabel>
+                        <div className="flex flex-col space-y-1">
+                          <span className="text-sm font-medium">{user.email}</span>
+                        </div>
+                      </DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild>
+                        <Link href="/compte">Mon compte</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
+                        className="text-red-600 dark:text-red-400 cursor-pointer"
+                        onClick={async () => { await signOut(); }}
+                      >
+                        Déconnexion
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
               </div>
 
               {/* Mobile Menu Toggle */}
@@ -329,10 +372,37 @@ export function ProfessionalHeader() {
 
                 {/* Mobile Menu Footer */}
                 <div className="p-4 border-t space-y-3">
-                  <ResponsiveButton variant="gradient" fullWidth>
-                    <User className="h-4 w-4 mr-2" />
-                    Se connecter
-                  </ResponsiveButton>
+                  {loading ? null : !user ? (
+                    <Link href="/connexion">
+                      <ResponsiveButton variant="gradient" fullWidth>
+                        <User className="h-4 w-4 mr-2" />
+                        Se connecter
+                      </ResponsiveButton>
+                    </Link>
+                  ) : (
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center gap-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarFallback>
+                            {user.email?.[0]?.toUpperCase() || "U"}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="text-sm font-medium truncate">{user.email}</span>
+                      </div>
+                      <Link href="/compte" className="block">
+                        <ResponsiveButton variant="outline" fullWidth>
+                          Mon compte
+                        </ResponsiveButton>
+                      </Link>
+                      <ResponsiveButton
+                        variant="destructive"
+                        fullWidth
+                        onClick={async () => { await signOut(); setIsMenuOpen(false) }}
+                      >
+                        Déconnexion
+                      </ResponsiveButton>
+                    </div>
+                  )}
                   <ResponsiveTypography variant="caption" align="center">
                     Version 2.0.0 • DjigaFlow
                   </ResponsiveTypography>
