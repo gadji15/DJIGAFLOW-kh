@@ -137,8 +137,13 @@ export default function AccountTabs() {
     )
   }
 
+  // Handler pour changement d'onglet (si besoin d'une action)
+  const handleTabChange = (value: string) => {
+    // Exemple : console.log("Onglet sélectionné :", value)
+  }
+
   return (
-    <Tabs defaultValue="profile" className="w-full">
+    <Tabs defaultValue="profile" className="w-full" onValueChange={handleTabChange}>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-64 space-y-1">
           <TabsList className="flex flex-col h-auto bg-transparent p-0 justify-start">
