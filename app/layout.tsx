@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { AuthProvider } from "@/components/auth-provider"
 import { CartProvider } from "@/components/cart-provider"
 import { Toaster } from "@/components/ui/sonner"
+import { NotificationProvider } from "@/components/ui/notification"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -69,14 +70,16 @@ export default function RootLayout({
   return (
     <html lang="fr" className={inter.variable} suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <AuthProvider>
-            <CartProvider>
-              {children}
-              <Toaster position="top-right" richColors />
-            </CartProvider>
-          </AuthProvider>
-        </ThemeProvider>
+        <NotificationProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <AuthProvider>
+              <CartProvider>
+                {children}
+                <Toaster position="top-right" richColors />
+              </CartProvider>
+            </AuthProvider>
+          </ThemeProvider>
+        </NotificationProvider>
       </body>
     </html>
   )
