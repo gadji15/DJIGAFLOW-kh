@@ -62,9 +62,7 @@ export function ProfessionalHeader() {
       ],
     },
     { name: "Nouveautés", href: "/nouveautes", badge: "New" },
-    { name: "Promotions", href: "/promotions", badge: "Hot" },
-    { name: "À propos", href: "/a-propos" },
-    { name: "Contact", href: "/contact" },
+    { name: "Promotions", href: "/promotions", badge: "Hot" }
   ]
 
   return (
