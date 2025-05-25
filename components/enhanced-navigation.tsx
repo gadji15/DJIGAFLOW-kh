@@ -77,8 +77,6 @@ export function EnhancedNavigation() {
     { name: "Nouveautés", href: "/nouveautes", isNew: true },
     { name: "Promotions", href: "/promotions", badge: "Hot" },
     { name: "Marques", href: "/marques" },
-    { name: "À propos", href: "/a-propos" },
-    { name: "Contact", href: "/contact" },
   ]
 
   const toggleDropdown = (dropdownId: string) => {

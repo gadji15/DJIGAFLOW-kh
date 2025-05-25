@@ -7,19 +7,20 @@ import { Button } from "@/components/ui/button"
 import { ShoppingCart, Menu, X, User, Search } from "lucide-react"
 import { useCart } from "./cart-provider"
 import { Input } from "@/components/ui/input"
+import { useAuth } from "@/components/auth-provider"
+import { UserAccountMenu } from "@/components/user-account-menu"
 
 export function Header() {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { itemCount } = useCart()
+  const { user, loading } = useAuth()
 
   const navItems = [
     { name: "Accueil", href: "/" },
     { name: "Catalogue", href: "/catalogue" },
     { name: "Nouveautés", href: "/nouveautes" },
     { name: "Promotions", href: "/promotions" },
-    { name: "À propos", href: "/a-propos" },
-    { name: "Contact", href: "/contact" },
   ]
 
   return (
@@ -82,13 +83,17 @@ export function Header() {
               )}
             </Button>
           </Link>
-
-          <Button asChild className="btn-gradient-primary hover:shadow-colored transition-all duration-200 px-5">
-            <Link href="/connexion">
-              <User className="h-4 w-4 mr-2" />
-              Connexion
-            </Link>
-          </Button>
+          {!loading && !user && (
+            <Button asChild className="btn-gradient-primary hover:shadow-colored transition-all duration-200 px-5">
+              <Link href="/connexion">
+                <User className="h-4 w-4 mr-2" />
+                Connexion
+              </Link>
+            </Button>
+          )}
+          {!loading && user && (
+            <UserAccountMenu />
+          )}
         </div>
 
         <div className="flex items-center md:hidden">
@@ -134,16 +139,23 @@ export function Header() {
               </Link>
             ))}
 
-            <Button
-              asChild
-              className="justify-start mt-4 btn-gradient-primary py-3"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Link href="/connexion">
-                <User className="h-4 w-4 mr-2" />
-                Connexion
-              </Link>
-            </Button>
+            {!loading && !user && (
+              <Button
+                asChild
+                className="justify-start mt-4 btn-gradient-primary py-3"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Link href="/connexion">
+                  <User className="h-4 w-4 mr-2" />
+                  Connexion
+                </Link>
+              </Button>
+            )}
+            {!loading && user && (
+              <div className="mt-4">
+                <UserAccountMenu />
+              </div>
+            )}
           </nav>
         </div>
       )}

@@ -35,6 +35,8 @@ export function OptimizedImage({
   placeholder = "shimmer",
   blurDataURL,
 }: OptimizedImageProps) {
+  // Always ensure alt is a valid string
+  const altText = alt && alt.trim().length > 0 ? alt : "Image"
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
   const imgRef = useRef<HTMLDivElement>(null)
@@ -99,7 +101,7 @@ export function OptimizedImage({
       {(priority || isInView) && (
         <Image
           src={src || "/placeholder.svg"}
-          alt={alt}
+          alt={altText}
           width={fill ? undefined : width}
           height={fill ? undefined : height}
           fill={fill}
