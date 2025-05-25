@@ -23,14 +23,14 @@ export default function LoginForm() {
       // Simuler une connexion (remplacer par un appel réel à une API ici)
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      // Exemple simple : si email et mot de passe sont non vides, considérer comme succès
-      if (email === "test@example.com" && password === "password") {
+      // Simulation : accepter toute combinaison email/mot de passe non vide comme succès
+      if (email.trim() && password.trim()) {
         toast.success("Connexion réussie !")
         setTimeout(() => {
           router.push("/")
         }, 1200)
       } else {
-        toast.error("Email ou mot de passe incorrect.")
+        toast.error("Veuillez remplir tous les champs.")
       }
     } catch (error) {
       toast.error("Une erreur est survenue, veuillez réessayer.")
