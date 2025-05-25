@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { checkSupabaseConnection } from "@/lib/supabase"
+import { getConnectionStatus } from "@/lib/supabase"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { AlertCircle, CheckCircle, Wifi, WifiOff } from "lucide-react"
@@ -14,7 +14,8 @@ export function SupabaseStatus() {
   } | null>(null)
 
   useEffect(() => {
-    checkSupabaseConnection().then(setStatus)
+    const status = getConnectionStatus()
+    setStatus(status)
   }, [])
 
   if (!status) return null
