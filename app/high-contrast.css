@@ -1,0 +1,122 @@
+.high-contrast {
+  --primary: 220 100% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 45 100% 40%;
+  --secondary-foreground: 0 0% 0%;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 20%;
+  --border: 0 0% 0%;
+  --input: 0 0% 90%;
+  --ring: 220 100% 40%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 0%;
+  --destructive: 0 100% 40%;
+  --destructive-foreground: 0 0% 100%;
+}
+
+.high-contrast.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 80%;
+  --border: 0 0% 100%;
+  --card: 0 0% 0%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 100%;
+}
+
+.high-contrast a:focus,
+.high-contrast button:focus,
+.high-contrast input:focus,
+.high-contrast select:focus,
+.high-contrast textarea:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.high-contrast img {
+  filter: contrast(1.2);
+}
+
+.high-contrast .text-muted-foreground {
+  color: hsl(0 0% 20%);
+}
+
+.high-contrast.dark .text-muted-foreground {
+  color: hsl(0 0% 80%);
+}
+
+/* Improved focus styles for all interactive elements */
+.high-contrast a,
+.high-contrast button,
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea,
+.high-contrast [tabindex="0"] {
+  transition: outline-color 0.2s ease-in-out;
+}
+
+.high-contrast a:focus-visible,
+.high-contrast button:focus-visible,
+.high-contrast input:focus-visible,
+.high-contrast select:focus-visible,
+.high-contrast textarea:focus-visible,
+.high-contrast [tabindex="0"]:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Improved contrast for buttons */
+.high-contrast .btn-primary,
+.high-contrast .bg-primary {
+  background-color: hsl(220, 100%, 40%);
+  color: white;
+}
+
+.high-contrast .btn-secondary,
+.high-contrast .bg-secondary {
+  background-color: hsl(45, 100%, 40%);
+  color: black;
+}
+
+/* Improved contrast for text */
+.high-contrast p,
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast h5,
+.high-contrast h6,
+.high-contrast span,
+.high-contrast label {
+  color: var(--foreground);
+}
+
+/* Improved contrast for borders */
+.high-contrast .border,
+.high-contrast [class*="border-"] {
+  border-color: var(--border);
+}
+
+/* Improved contrast for form elements */
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  border: 2px solid var(--border);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Improved contrast for disabled elements */
+.high-contrast button:disabled,
+.high-contrast input:disabled,
+.high-contrast select:disabled,
+.high-contrast textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

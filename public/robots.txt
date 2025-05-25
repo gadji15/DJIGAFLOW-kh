@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /monitoring/
+
+# Allow specific endpoints
+Allow: /api/health
+Allow: /api/sitemap
+
+# Disallow temporary pages
+Disallow: /maintenance
+Disallow: /erreur
+Disallow: /test/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://djigaflow.com/sitemap.xml
+
+# Host preference
+Host: https://djigaflow.com
