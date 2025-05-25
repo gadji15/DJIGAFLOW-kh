@@ -254,7 +254,7 @@ export function ProfessionalHeader() {
                   </Link>
                 )}
                 {!loading && user && (
-                  <UserAccountMenu user={user} />
+                  <UserAccountMenu />
                 )}
               </div>
 
@@ -350,7 +350,7 @@ export function ProfessionalHeader() {
                     </Link>
                   )}
                   {!loading && user && (
-                    <UserAccountMenu user={user} mobile />
+                    <UserAccountMenu />
                   )}
                   <ResponsiveTypography variant="caption" align="center">
                     Version 2.0.0 • DjigaFlow
