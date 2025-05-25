@@ -17,9 +17,7 @@ export function Header() {
     { name: "Accueil", href: "/" },
     { name: "Catalogue", href: "/catalogue" },
     { name: "Nouveautés", href: "/nouveautes" },
-    { name: "Promotions", href: "/promotions" },
-    // { name: "À propos", href: "/a-propos" },
-    // { name: "Contact", href: "/contact" },
+    { name: "Promotions", href: "/promotions" }
   ]
 
   return (
