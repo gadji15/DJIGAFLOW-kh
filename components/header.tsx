@@ -17,9 +17,7 @@ export function Header() {
     { name: "Accueil", href: "/" },
     { name: "Catalogue", href: "/catalogue" },
     { name: "Nouveautés", href: "/nouveautes" },
-    { name: "Promotions", href: "/promotions" },
-    { name: "À propos", href: "/a-propos" },
-    { name: "Contact", href: "/contact" },
+    { name: "Promotions", href: "/promotions" }
   ]
 
   return (
@@ -37,21 +35,23 @@ export function Header() {
           </Link>
 
           <nav className="hidden md:flex gap-8 ml-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium transition-all duration-200 hover:text-nav-hover relative group ${
-                  pathname === item.href ? "text-primary" : "text-nav-foreground/80 hover:text-nav-foreground"
-                }`}
-              >
-                {item.name}
-                <span
-                  className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full ${
-                    pathname === item.href ? "w-full" : ""
+            {navItems
+              .filter(item => item.name !== "À propos" && item.name !== "Contact")
+              .map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium transition-all duration-200 hover:text-nav-hover relative group ${
+                    pathname === item.href ? "text-primary" : "text-nav-foreground/80 hover:text-nav-foreground"
                   }`}
-                />
-              </Link>
+                >
+                  {item.name}
+                  <span
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full ${
+                      pathname === item.href ? "w-full" : ""
+                    }`}
+                  />
+                </Link>
             ))}
           </nav>
         </div>
@@ -121,17 +121,19 @@ export function Header() {
           </div>
 
           <nav className="flex flex-col space-y-3 px-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary py-3 px-4 rounded-md ${
-                  pathname === item.href ? "text-primary bg-primary/10" : "text-nav-foreground/80 hover:bg-muted/50"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
+            {navItems
+              .filter(item => item.name !== "À propos" && item.name !== "Contact")
+              .map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium transition-colors hover:text-primary py-3 px-4 rounded-md ${
+                    pathname === item.href ? "text-primary bg-primary/10" : "text-nav-foreground/80 hover:bg-muted/50"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
             ))}
 
             <Button
