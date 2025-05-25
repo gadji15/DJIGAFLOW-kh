@@ -30,10 +30,13 @@ import {
 } from "lucide-react"
 import { useCart } from "@/components/cart-provider"
 import { cn } from "@/lib/utils"
+import { useAuth } from "@/components/auth-provider"
+import { UserAccountMenu } from "@/components/user-account-menu"
 
 export function ProfessionalHeader() {
   const pathname = usePathname()
   const { itemCount } = useCart()
+  const { user, loading } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -240,14 +243,19 @@ export function ProfessionalHeader() {
 
               {/* User Account - Desktop */}
               <div className="hidden lg:block">
-                <Link href="/connexion" passHref legacyBehavior>
-                  <a>
-                    <ResponsiveButton variant="gradient" size="md">
-                      <User className="h-4 w-4 mr-2" />
-                      Connexion
-                    </ResponsiveButton>
-                  </a>
-                </Link>
+                {!loading && !user && (
+                  <Link href="/connexion" passHref legacyBehavior>
+                    <a>
+                      <ResponsiveButton variant="gradient" size="md">
+                        <User className="h-4 w-4 mr-2" />
+                        Connexion
+                      </ResponsiveButton>
+                    </a>
+                  </Link>
+                )}
+                {!loading && user && (
+                  <UserAccountMenu user={user} />
+                )}
               </div>
 
               {/* Mobile Menu Toggle */}
@@ -331,14 +339,19 @@ export function ProfessionalHeader() {
 
                 {/* Mobile Menu Footer */}
                 <div className="p-4 border-t space-y-3">
-                  <Link href="/connexion" passHref legacyBehavior>
-                    <a>
-                      <ResponsiveButton variant="gradient" fullWidth>
-                        <User className="h-4 w-4 mr-2" />
-                        Se connecter
-                      </ResponsiveButton>
-                    </a>
-                  </Link>
+                  {!loading && !user && (
+                    <Link href="/connexion" passHref legacyBehavior>
+                      <a>
+                        <ResponsiveButton variant="gradient" fullWidth>
+                          <User className="h-4 w-4 mr-2" />
+                          Se connecter
+                        </ResponsiveButton>
+                      </a>
+                    </Link>
+                  )}
+                  {!loading && user && (
+                    <UserAccountMenu user={user} mobile />
+                  )}
                   <ResponsiveTypography variant="caption" align="center">
                     Version 2.0.0 • DjigaFlow
                   </ResponsiveTypography>
