@@ -3,9 +3,11 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { toast } from "sonner"
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -16,6 +18,7 @@ export default function RegisterForm() {
     confirmPassword: "",
   })
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -26,17 +29,35 @@ export default function RegisterForm() {
     e.preventDefault()
 
     if (formData.password !== formData.confirmPassword) {
-      alert("Les mots de passe ne correspondent pas.")
+      toast.error("Les mots de passe ne correspondent pas.")
       return
     }
 
     setIsLoading(true)
 
-    // Simuler une inscription
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      // Simuler une inscription (remplacer par un appel réel à une API ici)
+      await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    console.log("Inscription avec:", formData)
-    setIsLoading(false)
+      // Exemple : Si tout est ok, succès
+      if (
+        formData.email &&
+        formData.password &&
+        formData.firstName &&
+        formData.lastName
+      ) {
+        toast.success("Inscription réussie ! Vous pouvez maintenant vous connecter.")
+        setTimeout(() => {
+          router.push("/connexion")
+        }, 1200)
+      } else {
+        toast.error("Veuillez remplir tous les champs.")
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue, veuillez réessayer.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
