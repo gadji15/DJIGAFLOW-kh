@@ -378,19 +378,13 @@ export const getConnectionStatus = () => ({
 // Helper pour obtenir des données avec fallback automatique
 export const getDataWithFallback = async <T>(
   supabaseQuery: () => Promise<{ data: T; error: any }>,
-  fallbackData: T\
-)
-: Promise<
-{
+  fallbackData: T
+): Promise<{
   data: T
   error: any
-}
-> =>
-{
-  \
+}> => {
   if (!hasSupabaseConfig) {
-    console.log(\"📊 Utilisation des données de démonstration")
-    \
+    console.log("📊 Utilisation des données de démonstration")
     return { data: fallbackData, error: null }
   }
 
