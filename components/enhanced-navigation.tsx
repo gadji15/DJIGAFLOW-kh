@@ -13,6 +13,9 @@ import { useCart } from "./cart-provider"
 import { AnimatedLogo } from "./ui/animated-logo"
 import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
+import { useAuth } from "@/components/auth-provider"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 
 interface NavItem {
   name: string
@@ -35,6 +38,7 @@ export function EnhancedNavigation() {
   const { itemCount } = useCart()
   const dropdownRef = useRef<HTMLDivElement>(null)
   const searchRef = useRef<HTMLDivElement>(null)
+  const { user, loading, signOut } = useAuth()
 
   // Handle scroll effect
   useEffect(() => {
@@ -316,15 +320,45 @@ export function EnhancedNavigation() {
 
               {/* User Account - Desktop */}
               <div className="hidden lg:block">
-                <Button
-                  asChild
-                  className="bg-gradient-to-r from-primary to-primary-hover hover:shadow-md transition-all duration-200"
-                >
-                  <Link href="/connexion" className="flex items-center space-x-2">
-                    <User className="h-4 w-4" />
-                    <span>Connexion</span>
-                  </Link>
-                </Button>
+                {loading ? null : !user ? (
+                  <Button
+                    asChild
+                    className="bg-gradient-to-r from-primary to-primary-hover hover:shadow-md transition-all duration-200"
+                  >
+                    <Link href="/connexion" className="flex items-center space-x-2">
+                      <User className="h-4 w-4" />
+                      <span>Connexion</span>
+                    </Link>
+                  </Button>
+                ) : (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Avatar className="h-10 w-10 cursor-pointer">
+                        <AvatarFallback>
+                          {user.email?.[0]?.toUpperCase() || "U"}
+                        </AvatarFallback>
+                      </Avatar>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-56">
+                      <DropdownMenuLabel>
+                        <div className="flex flex-col space-y-1">
+                          <p className="text-sm font-medium">{user.email}</p>
+                        </div>
+                      </DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild>
+                        <Link href="/compte">Mon compte</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
+                        className="text-red-600 dark:text-red-400 cursor-pointer"
+                        onClick={async () => { await signOut(); }}
+                      >
+                        Déconnexion
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
               </div>
 
               {/* Mobile Menu Toggle */}
