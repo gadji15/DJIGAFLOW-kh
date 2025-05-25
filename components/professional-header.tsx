@@ -240,10 +240,14 @@ export function ProfessionalHeader() {
 
               {/* User Account - Desktop */}
               <div className="hidden lg:block">
-                <ResponsiveButton variant="gradient" size="md">
-                  <User className="h-4 w-4 mr-2" />
-                  Connexion
-                </ResponsiveButton>
+                <Link href="/connexion" passHref legacyBehavior>
+                  <a>
+                    <ResponsiveButton variant="gradient" size="md">
+                      <User className="h-4 w-4 mr-2" />
+                      Connexion
+                    </ResponsiveButton>
+                  </a>
+                </Link>
               </div>
 
               {/* Mobile Menu Toggle */}
@@ -327,10 +331,14 @@ export function ProfessionalHeader() {
 
                 {/* Mobile Menu Footer */}
                 <div className="p-4 border-t space-y-3">
-                  <ResponsiveButton variant="gradient" fullWidth>
-                    <User className="h-4 w-4 mr-2" />
-                    Se connecter
-                  </ResponsiveButton>
+                  <Link href="/connexion" passHref legacyBehavior>
+                    <a>
+                      <ResponsiveButton variant="gradient" fullWidth>
+                        <User className="h-4 w-4 mr-2" />
+                        Se connecter
+                      </ResponsiveButton>
+                    </a>
+                  </Link>
                   <ResponsiveTypography variant="caption" align="center">
                     Version 2.0.0 • DjigaFlow
                   </ResponsiveTypography>
