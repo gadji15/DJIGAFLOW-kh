@@ -423,14 +423,14 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- Insert initial log entry
 INSERT INTO admin_logs (
-    log_id, level, category, action, details
+    log_id, level, category, action, message, details
 ) VALUES (
     'schema_init_' || extract(epoch from now())::text,
     'INFO',
     'DATABASE',
     'SCHEMA_INITIALIZATION',
+    'Admin logs schema initialized successfully',
     jsonb_build_object(
-        'message', 'Admin logs schema initialized successfully',
         'timestamp', NOW(),
         'version', '1.0.0'
     )
