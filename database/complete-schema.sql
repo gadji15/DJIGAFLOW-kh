@@ -1680,7 +1680,7 @@ INSERT INTO system_settings (key, value, description, category, is_public) VALUE
 ('sms_notifications_enabled', 'false', 'Notifications par SMS activées', 'notifications', false),
 ('analytics_enabled', 'true', 'Analytics activées', 'analytics', false),
 ('max_upload_size_mb', '10', 'Taille maximale de téléchargement en MB', 'uploads', false),
-('allowed_image_types', '["jpg", "jpeg", "png", "webp", "gif"]'::jsonb, 'Types d\'images autorisés', 'uploads', false),
+('allowed_image_types', '["jpg", "jpeg", "png", "webp", "gif"]'::jsonb, 'Types d''images autorisés', 'uploads', false),
 ('free_shipping_threshold', '50', 'Seuil de livraison gratuite', 'shipping', true),
 ('tax_rate', '20', 'Taux de TVA par défaut', 'tax', false),
 ('cookie_consent_required', 'true', 'Consentement cookies requis', 'privacy', true)
