@@ -1693,4 +1693,4 @@ INSERT INTO categories (name, slug, description, sort_order, is_active, is_featu
 ('Maison & Jardin', 'maison-jardin', 'Articles pour la maison et le jardinage', 3, true, true),
 ('Sport & Loisirs', 'sport-loisirs', 'Équipements sportifs et articles de loisirs', 4, true, true),
 ('Santé & Bien-être', 'sante-bien-etre', 'Produits de santé et bien-être', 5, true, false),
-('Automobile', 'automobile', 'Accessoires et pièces automobiles', 6
+('Automobile', 'automobile', 'Accessoires et pièces automobiles', 6, true, false);
