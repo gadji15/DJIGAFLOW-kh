@@ -1,3 +1,11 @@
+-- Table de profils utilisateurs (ajoutée pour compatibilité avec les fonctionnalités avancées)
+CREATE TABLE IF NOT EXISTS user_profiles (
+  id UUID PRIMARY KEY REFERENCES users(id),
+  avatar_url TEXT,
+  bio TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
 -- Tables pour l'authentification MFA
 CREATE TABLE IF NOT EXISTS user_mfa_temp (
   user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
