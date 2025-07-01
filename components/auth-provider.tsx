@@ -8,7 +8,7 @@ import React, {
   type ReactNode,
 } from "react";
 import type { User, Session } from "@supabase/supabase-js";
-import { createBrowserClient } from "@supabase/ssr";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
 interface AuthContextType {
@@ -29,7 +29,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const supabase = createBrowserClient();
+  const supabase = createClientComponentClient();
 
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
