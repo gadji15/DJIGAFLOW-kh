@@ -357,8 +357,10 @@ CREATE TABLE IF NOT EXISTS product_images (
     height INTEGER,
     file_size INTEGER,
     mime_type VARCHAR(100),
-    metadata JSONB DEFAULT '{}'::jsonb
+    metadata JSONB DEFAULT '{}'::jsonb,
+    status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive')) NOT NULL
 );
+ALTER TABLE product_images ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive')) NOT NULL;
 
 ALTER TABLE product_images ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive')) NOT NULL;
 
@@ -379,7 +381,8 @@ CREATE TABLE IF NOT EXISTS product_variants (
     image_url TEXT,
     attributes JSONB DEFAULT '{}'::jsonb NOT NULL,
     is_active BOOLEAN DEFAULT TRUE NOT NULL,
-    sort_order INTEGER DEFAULT 0 NOT NULL
+    sort_order INTEGER DEFAULT 0 NOT NULL,
+    status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive')) NOT NULL
 );
 
 ALTER TABLE product_variants ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive')) NOT NULL;
