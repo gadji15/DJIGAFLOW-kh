@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS admin_logs (
     user_agent TEXT,
     url TEXT,
     stack_trace TEXT,
+    duration NUMERIC(10,2), -- duration in ms or similar, nullable
+    session_id UUID, -- tracking user session
+    log_id TEXT UNIQUE, -- custom string identifier used by archive and init
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -26,6 +29,7 @@ CREATE INDEX IF NOT EXISTS idx_admin_logs_level ON admin_logs(level);
 CREATE INDEX IF NOT EXISTS idx_admin_logs_category ON admin_logs(category);
 CREATE INDEX IF NOT EXISTS idx_admin_logs_user_id ON admin_logs(user_id);
 CREATE INDEX IF NOT EXISTS idx_admin_logs_action ON admin_logs(action);
+CREATE INDEX IF NOT EXISTS idx_admin_logs_session_id ON admin_logs(session_id);
 
 -- Create composite indexes for common query patterns
 CREATE INDEX IF NOT EXISTS idx_admin_logs_level_category ON admin_logs(level, category);
