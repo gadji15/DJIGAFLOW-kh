@@ -3,27 +3,9 @@
 import type React from "react"
 
 import { createContext, useContext, useEffect, useState } from "react"
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
-import { useRouter } from "next/navigation"
-import type { Session, User } from "@supabase/supabase-js"
-
-type AuthContextType = {
-  user: User | null
-  session: Session | null
-  signIn: (email: string, password: string) => Promise<{ error: any }>
-  signUp: (email: string, password: string, firstName: string, lastName: string) => Promise<{ error: any }>
-  signOut: () => Promise<void>
-  loading: boolean
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
-
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null)
-  const [session, setSession] = useState<Session | null>(null)
-  const [loading, setLoading] = useState(true)
-  const router = useRouter()
-  const supabase = createClientComponentClient()
+import { createBrowserClient } from "@supabase/ssr"
+...
+  const supabase = createBrowserClient()
 
   useEffect(() => {
     // Récupérer la session actuelle
