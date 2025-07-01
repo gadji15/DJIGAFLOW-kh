@@ -359,7 +359,6 @@ GRANT EXECUTE ON FUNCTION get_admin_logs_by_category(TIMESTAMPTZ, TIMESTAMPTZ) T
 GRANT EXECUTE ON FUNCTION get_error_patterns(TIMESTAMPTZ, TIMESTAMPTZ, INTEGER) TO authenticated;
 GRANT EXECUTE ON FUNCTION get_user_activity_summary(TIMESTAMPTZ, TIMESTAMPTZ) TO authenticated;
 GRANT EXECUTE ON FUNCTION get_realtime_log_metrics() TO authenticated;
-GRANT EXECUTE ON FUNCTION insert_admin_log(TEXT, TEXT, TEXT, TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;
 
 -- Create RLS policies for admin_logs table
 ALTER TABLE admin_logs ENABLE ROW LEVEL SECURITY;
@@ -446,3 +445,5 @@ COMMENT ON COLUMN admin_logs.details IS 'Détails supplémentaires au format JSO
 COMMENT ON COLUMN admin_logs.message IS 'Message du log';
 COMMENT ON FUNCTION cleanup_old_admin_logs() IS 'Fonction de nettoyage automatique des anciens logs';
 COMMENT ON FUNCTION insert_admin_log() IS 'Fonction sécurisée pour insérer des logs depuis l''application';
+
+GRANT EXECUTE ON FUNCTION insert_admin_log(TEXT, TEXT, TEXT, TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;
