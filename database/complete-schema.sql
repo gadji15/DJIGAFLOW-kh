@@ -360,6 +360,8 @@ CREATE TABLE IF NOT EXISTS product_images (
     metadata JSONB DEFAULT '{}'::jsonb
 );
 
+ALTER TABLE product_images ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive')) NOT NULL;
+
 -- Product variants (size, color, etc.)
 CREATE TABLE IF NOT EXISTS product_variants (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -379,6 +381,8 @@ CREATE TABLE IF NOT EXISTS product_variants (
     is_active BOOLEAN DEFAULT TRUE NOT NULL,
     sort_order INTEGER DEFAULT 0 NOT NULL
 );
+
+ALTER TABLE product_variants ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive')) NOT NULL;
 
 -- =====================================================
 -- ORDER MANAGEMENT SYSTEM
