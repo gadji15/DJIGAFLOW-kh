@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { createContext, useContext, useEffect, useState } from "react"
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
+import { createClientComponentClient } from "@supabase/ssr"
 import { useRouter } from "next/navigation"
 import type { Session, User } from "@supabase/supabase-js"
 
