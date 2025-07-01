@@ -359,7 +359,7 @@ GRANT EXECUTE ON FUNCTION get_admin_logs_by_category(TIMESTAMPTZ, TIMESTAMPTZ) T
 GRANT EXECUTE ON FUNCTION get_error_patterns(TIMESTAMPTZ, TIMESTAMPTZ, INTEGER) TO authenticated;
 GRANT EXECUTE ON FUNCTION get_user_activity_summary(TIMESTAMPTZ, TIMESTAMPTZ) TO authenticated;
 GRANT EXECUTE ON FUNCTION get_realtime_log_metrics() TO authenticated;
-GRANT EXECUTE ON FUNCTION insert_admin_log(VARCHAR(10), VARCHAR(50), VARCHAR(100), TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;
+GRANT EXECUTE ON FUNCTION insert_admin_log(TEXT, TEXT, TEXT, TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;
 
 -- Create RLS policies for admin_logs table
 ALTER TABLE admin_logs ENABLE ROW LEVEL SECURITY;
@@ -378,9 +378,9 @@ CREATE POLICY admin_logs_policy ON admin_logs
 
 -- Create function to insert log from application
 CREATE OR REPLACE FUNCTION insert_admin_log(
-    p_level VARCHAR(10),
-    p_category VARCHAR(50),
-    p_action VARCHAR(100),
+    p_level TEXT,
+    p_category TEXT,
+    p_action TEXT,
     p_message TEXT,
     p_details JSONB DEFAULT NULL,
     p_ip_address INET DEFAULT NULL,
