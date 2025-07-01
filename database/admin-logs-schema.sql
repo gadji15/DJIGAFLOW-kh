@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS admin_logs (
     user_agent TEXT,
     url TEXT,
     stack_trace TEXT,
+    duration NUMERIC(10,2), -- duration in ms or similar, nullable
+    session_id UUID, -- tracking user session
+    log_id TEXT UNIQUE, -- custom string identifier used by archive and init
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -26,6 +29,7 @@ CREATE INDEX IF NOT EXISTS idx_admin_logs_level ON admin_logs(level);
 CREATE INDEX IF NOT EXISTS idx_admin_logs_category ON admin_logs(category);
 CREATE INDEX IF NOT EXISTS idx_admin_logs_user_id ON admin_logs(user_id);
 CREATE INDEX IF NOT EXISTS idx_admin_logs_action ON admin_logs(action);
+CREATE INDEX IF NOT EXISTS idx_admin_logs_session_id ON admin_logs(session_id);
 
 -- Create composite indexes for common query patterns
 CREATE INDEX IF NOT EXISTS idx_admin_logs_level_category ON admin_logs(level, category);
@@ -373,9 +377,9 @@ CREATE POLICY admin_logs_policy ON admin_logs
 
 -- Create function to insert log from application
 CREATE OR REPLACE FUNCTION insert_admin_log(
-    p_level VARCHAR(10),
-    p_category VARCHAR(50),
-    p_action VARCHAR(100),
+    p_level TEXT,
+    p_category TEXT,
+    p_action TEXT,
     p_message TEXT,
     p_details JSONB DEFAULT NULL,
     p_ip_address INET DEFAULT NULL,
@@ -419,14 +423,14 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- Insert initial log entry
 INSERT INTO admin_logs (
-    log_id, level, category, action, details
+    log_id, level, category, action, message, details
 ) VALUES (
     'schema_init_' || extract(epoch from now())::text,
     'INFO',
     'DATABASE',
     'SCHEMA_INITIALIZATION',
+    'Admin logs schema initialized successfully',
     jsonb_build_object(
-        'message', 'Admin logs schema initialized successfully',
         'timestamp', NOW(),
         'version', '1.0.0'
     )
@@ -441,3 +445,5 @@ COMMENT ON COLUMN admin_logs.details IS 'Détails supplémentaires au format JSO
 COMMENT ON COLUMN admin_logs.message IS 'Message du log';
 COMMENT ON FUNCTION cleanup_old_admin_logs() IS 'Fonction de nettoyage automatique des anciens logs';
 COMMENT ON FUNCTION insert_admin_log() IS 'Fonction sécurisée pour insérer des logs depuis l''application';
+
+GRANT EXECUTE ON FUNCTION insert_admin_log(TEXT, TEXT, TEXT, TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;

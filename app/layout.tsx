@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { AuthProvider } from "@/components/auth-provider"
 import { CartProvider } from "@/components/cart-provider"
 import { Toaster } from "@/components/ui/sonner"
+import { ToastProvider } from "@/components/ui/toast-system"
 import { UnifiedHeader } from "@/components/unified-header"
 import { ProfessionalFooter } from "@/components/professional-footer"
 import { ServiceWorkerRegister } from "@/components/service-worker-register"
@@ -110,18 +111,20 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
-          <AuthProvider>
-            <CartProvider>
-              <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950">
-                <UnifiedHeader />
-                <main className="flex-1 relative">{children}</main>
-                <ProfessionalFooter />
-              </div>
-              <Toaster />
-              <ServiceWorkerRegister />
-              <PerformanceMonitor />
-            </CartProvider>
-          </AuthProvider>
+          <ToastProvider>
+            <AuthProvider>
+              <CartProvider>
+                <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950">
+                  <UnifiedHeader />
+                  <main className="flex-1 relative">{children}</main>
+                  <ProfessionalFooter />
+                </div>
+                <Toaster />
+                <ServiceWorkerRegister />
+                <PerformanceMonitor />
+              </CartProvider>
+            </AuthProvider>
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>
