@@ -239,7 +239,7 @@ CREATE TABLE IF NOT EXISTS supplier_products (
     
     -- Constraints
     UNIQUE(supplier_id, external_id),
-    CONSTRAINT supplier_products_sale_price_check CHECK (sale_price IS NULL OR sale_price < original_price)
+    CHECK (sale_price IS NULL OR sale_price < original_price)
 );
 
 -- Products (our catalog)
