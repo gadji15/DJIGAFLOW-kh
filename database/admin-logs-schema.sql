@@ -444,6 +444,6 @@ COMMENT ON COLUMN admin_logs.action IS 'Action spécifique qui a généré le lo
 COMMENT ON COLUMN admin_logs.details IS 'Détails supplémentaires au format JSON';
 COMMENT ON COLUMN admin_logs.message IS 'Message du log';
 COMMENT ON FUNCTION cleanup_old_admin_logs() IS 'Fonction de nettoyage automatique des anciens logs';
-COMMENT ON FUNCTION insert_admin_log() IS 'Fonction sécurisée pour insérer des logs depuis l''application';
+COMMENT ON FUNCTION insert_admin_log(TEXT, TEXT, TEXT, TEXT, JSONB, INET, TEXT, TEXT, TEXT) IS 'Fonction sécurisée pour insérer des logs depuis l''application';
 
 GRANT EXECUTE ON FUNCTION insert_admin_log(TEXT, TEXT, TEXT, TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;
