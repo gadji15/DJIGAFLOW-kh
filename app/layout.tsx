@@ -1,25 +1,38 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
-import "./high-contrast.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AuthProvider } from "@/components/auth-provider"
 import { CartProvider } from "@/components/cart-provider"
 import { Toaster } from "@/components/ui/sonner"
+import { UnifiedHeader } from "@/components/unified-header"
+import { ProfessionalFooter } from "@/components/professional-footer"
+import { ServiceWorkerRegister } from "@/components/service-worker-register"
+import { PerformanceMonitor } from "@/components/ui/performance-monitor"
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
   variable: "--font-inter",
-  preload: true,
+  display: "swap",
+})
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "DjigaFlow - Votre boutique de dropshipping",
-  description: "Découvrez notre sélection de produits tendance à prix compétitifs",
-  keywords: "e-commerce, dropshipping, produits tendance, achats en ligne, boutique en ligne",
-  authors: [{ name: "DjigaFlow Team" }],
+  title: {
+    default: "DjigaFlow - Marketplace Professionnel",
+    template: "%s | DjigaFlow",
+  },
+  description:
+    "DjigaFlow est votre marketplace professionnel de confiance. Découvrez des milliers de produits de qualité avec livraison rapide et service client exceptionnel.",
+  keywords: ["marketplace", "e-commerce", "dropshipping", "produits", "livraison", "qualité", "professionnel"],
+  authors: [{ name: "DjigaFlow Team", url: "https://djigaflow.com" }],
   creator: "DjigaFlow",
   publisher: "DjigaFlow",
   formatDetection: {
@@ -27,37 +40,54 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://djigaflow.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "fr-FR": "/fr",
+      "en-US": "/en",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://djigaflow.com",
-    title: "DjigaFlow - Votre boutique de dropshipping",
-    description: "Découvrez notre sélection de produits tendance à prix compétitifs",
+    url: "/",
     siteName: "DjigaFlow",
+    title: "DjigaFlow - Marketplace Professionnel",
+    description: "Votre marketplace de confiance pour tous vos achats en ligne.",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "DjigaFlow - Marketplace Professionnel",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DjigaFlow - Votre boutique de dropshipping",
-    description: "Découvrez notre sélection de produits tendance à prix compétitifs",
+    title: "DjigaFlow - Marketplace Professionnel",
+    description: "Votre marketplace de confiance pour tous vos achats en ligne.",
+    images: ["/images/og-image.jpg"],
     creator: "@djigaflow",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#1f2937" },
-  ],
-  manifest: "/manifest.json",
-  icons: {
-    icon: [
-      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  verification: {
+    google: process.env.GOOGLE_VERIFICATION_CODE,
+    yandex: process.env.YANDEX_VERIFICATION_CODE,
+    yahoo: process.env.YAHOO_VERIFICATION_CODE,
   },
+  category: "technology",
     generator: 'v0.dev'
 }
 
@@ -67,13 +97,29 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={inter.variable} suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning className={`${inter.variable} ${poppins.variable}`}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#3b82f6" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
           <AuthProvider>
             <CartProvider>
-              {children}
-              <Toaster position="top-right" richColors />
+              <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950">
+                <UnifiedHeader />
+                <main className="flex-1 relative">{children}</main>
+                <ProfessionalFooter />
+              </div>
+              <Toaster />
+              <ServiceWorkerRegister />
+              <PerformanceMonitor />
             </CartProvider>
           </AuthProvider>
         </ThemeProvider>

@@ -15,6 +15,7 @@ import {
 } from "lucide-react"
 import { mockData, getConnectionStatus, queryData } from "@/lib/supabase"
 import Link from "next/link"
+import { RealTimeLogs } from "./components/real-time-logs"
 
 async function getDashboardStats() {
   return await queryData(mockData.dashboardStats)
@@ -80,7 +81,7 @@ async function DashboardData() {
           <p className="text-gray-600 dark:text-gray-400 mt-1">Vue d'ensemble de votre plateforme de dropshipping</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-          <Button type="button" variant="outline" className="w-full sm:w-auto">
+          <Button type="button" variant="outline" className="w-full sm:w-auto bg-transparent">
             <RefreshCw className="h-4 w-4 mr-2" />
             Sync globale
           </Button>
@@ -225,7 +226,7 @@ async function DashboardData() {
             <Button
               asChild
               variant="outline"
-              className="h-auto p-6 flex-col gap-3 hover:scale-105 transition-transform"
+              className="h-auto p-6 flex-col gap-3 hover:scale-105 transition-transform bg-transparent"
             >
               <Link href="/admin/produits">
                 <div className="p-3 bg-purple-100 dark:bg-purple-900/20 rounded-full">
@@ -238,7 +239,7 @@ async function DashboardData() {
             <Button
               asChild
               variant="outline"
-              className="h-auto p-6 flex-col gap-3 hover:scale-105 transition-transform"
+              className="h-auto p-6 flex-col gap-3 hover:scale-105 transition-transform bg-transparent"
             >
               <Link href="/admin/commandes">
                 <div className="p-3 bg-green-100 dark:bg-green-900/20 rounded-full">
@@ -251,7 +252,7 @@ async function DashboardData() {
             <Button
               asChild
               variant="outline"
-              className="h-auto p-6 flex-col gap-3 hover:scale-105 transition-transform"
+              className="h-auto p-6 flex-col gap-3 hover:scale-105 transition-transform bg-transparent"
             >
               <Link href="/admin/parametres">
                 <div className="p-3 bg-orange-100 dark:bg-orange-900/20 rounded-full">
@@ -263,6 +264,11 @@ async function DashboardData() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Real-time Logs */}
+      <div className="lg:col-span-2">
+        <RealTimeLogs />
+      </div>
     </div>
   )
 }

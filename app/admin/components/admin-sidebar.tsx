@@ -192,6 +192,13 @@ const sidebarSections = [
         badge: null,
         description: "Tâches automatisées",
       },
+      {
+        title: "Logs",
+        href: "/admin/logs",
+        icon: Activity,
+        badge: null,
+        description: "Logs d'administration",
+      },
     ],
   },
 ]
