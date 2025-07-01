@@ -359,7 +359,7 @@ GRANT EXECUTE ON FUNCTION get_admin_logs_by_category(TIMESTAMPTZ, TIMESTAMPTZ) T
 GRANT EXECUTE ON FUNCTION get_error_patterns(TIMESTAMPTZ, TIMESTAMPTZ, INTEGER) TO authenticated;
 GRANT EXECUTE ON FUNCTION get_user_activity_summary(TIMESTAMPTZ, TIMESTAMPTZ) TO authenticated;
 GRANT EXECUTE ON FUNCTION get_realtime_log_metrics() TO authenticated;
-GRANT EXECUTE ON FUNCTION insert_admin_log(VARCHAR, VARCHAR, VARCHAR, TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;
+GRANT EXECUTE ON FUNCTION insert_admin_log(VARCHAR(10), VARCHAR(50), VARCHAR(100), TEXT, JSONB, INET, TEXT, TEXT, TEXT) TO authenticated;
 
 -- Create RLS policies for admin_logs table
 ALTER TABLE admin_logs ENABLE ROW LEVEL SECURITY;
