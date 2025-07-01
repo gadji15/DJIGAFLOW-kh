@@ -3,6 +3,7 @@ import { AdminSidebar } from "./components/admin-sidebar"
 import { AdminNavbar } from "./components/admin-navbar"
 import { MobileAdminLayout } from "./components/mobile-admin-layout"
 import { SupabaseStatus } from "@/components/supabase-status"
+import { AdminErrorBoundary } from "./components/error-boundary"
 
 export default function AdminLayout({
   children,
@@ -10,7 +11,7 @@ export default function AdminLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <AdminErrorBoundary>
       {/* Desktop Layout */}
       <div className="hidden lg:block">
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -41,6 +42,6 @@ export default function AdminLayout({
           {children}
         </MobileAdminLayout>
       </div>
-    </>
+    </AdminErrorBoundary>
   )
 }

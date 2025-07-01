@@ -2,399 +2,217 @@
 
 import Link from "next/link"
 import {
-  ResponsiveContainer,
-  ResponsiveGrid,
-  ResponsiveFlex,
-  ResponsiveTypography,
-  ResponsiveButton,
-} from "@/components/ui/responsive-design-system"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import {
   Facebook,
-  Instagram,
   Twitter,
+  Instagram,
   Youtube,
-  Linkedin,
   Mail,
   Phone,
   MapPin,
+  CreditCard,
   Truck,
   Shield,
-  RotateCcw,
-  Clock,
-  ArrowUp,
+  Award,
 } from "lucide-react"
-import { motion } from "framer-motion"
+
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
+import { EnhancedNewsletterForm } from "@/components/forms/enhanced-newsletter-form"
+
+const footerLinks = {
+  company: {
+    title: "Entreprise",
+    links: [
+      { name: "À propos", href: "/a-propos" },
+      { name: "Nos valeurs", href: "/valeurs" },
+      { name: "Carrières", href: "/carrieres" },
+      { name: "Presse", href: "/presse" },
+      { name: "Partenaires", href: "/partenaires" },
+    ],
+  },
+  customer: {
+    title: "Service Client",
+    links: [
+      { name: "Centre d'aide", href: "/aide" },
+      { name: "Contact", href: "/contact" },
+      { name: "Livraison", href: "/livraison" },
+      { name: "Retours", href: "/retours" },
+      { name: "Garanties", href: "/garanties" },
+    ],
+  },
+  legal: {
+    title: "Légal",
+    links: [
+      { name: "Conditions d'utilisation", href: "/conditions" },
+      { name: "Politique de confidentialité", href: "/confidentialite" },
+      { name: "Mentions légales", href: "/mentions-legales" },
+      { name: "Cookies", href: "/cookies" },
+      { name: "RGPD", href: "/rgpd" },
+    ],
+  },
+  categories: {
+    title: "Catégories",
+    links: [
+      { name: "Électronique", href: "/catalogue/electronique" },
+      { name: "Mode", href: "/catalogue/mode" },
+      { name: "Maison", href: "/catalogue/maison" },
+      { name: "Sport", href: "/catalogue/sport" },
+      { name: "Beauté", href: "/catalogue/beaute" },
+    ],
+  },
+}
+
+const socialLinks = [
+  { name: "Facebook", icon: Facebook, href: "https://facebook.com/djigaflow" },
+  { name: "Twitter", icon: Twitter, href: "https://twitter.com/djigaflow" },
+  { name: "Instagram", icon: Instagram, href: "https://instagram.com/djigaflow" },
+  { name: "YouTube", icon: Youtube, href: "https://youtube.com/djigaflow" },
+]
+
+const trustBadges = [
+  { icon: Shield, text: "Paiement sécurisé" },
+  { icon: Truck, text: "Livraison rapide" },
+  { icon: Award, text: "Qualité garantie" },
+  { icon: CreditCard, text: "Paiement en 3x" },
+]
 
 export function ProfessionalFooter() {
   const currentYear = new Date().getFullYear()
 
-  const quickLinks = [
-    { name: "Catalogue", href: "/catalogue" },
-    { name: "Nouveautés", href: "/nouveautes", badge: "New" },
-    { name: "Promotions", href: "/promotions", badge: "Hot" },
-    { name: "Marques", href: "/marques" },
-    { name: "Guide des tailles", href: "/guide-tailles" },
-  ]
-
-  const customerService = [
-    { name: "Mon compte", href: "/compte" },
-    { name: "Mes commandes", href: "/commandes" },
-    { name: "Livraison & Retours", href: "/livraison" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Service client", href: "/contact" },
-  ]
-
-  const company = [
-    { name: "À propos", href: "/a-propos" },
-    { name: "Notre histoire", href: "/notre-histoire" },
-    { name: "Carrières", href: "/carrieres" },
-    { name: "Presse", href: "/presse" },
-    { name: "Partenaires", href: "/partenaires" },
-  ]
-
-  const legal = [
-    { name: "Mentions légales", href: "/mentions-legales" },
-    { name: "Conditions générales", href: "/conditions-generales" },
-    { name: "Politique de confidentialité", href: "/confidentialite" },
-    { name: "Cookies", href: "/cookies" },
-    { name: "RGPD", href: "/rgpd" },
-  ]
-
-  const features = [
-    {
-      icon: <Truck className="h-5 w-5" />,
-      title: "Livraison gratuite",
-      description: "Dès 50€ d'achat",
-    },
-    {
-      icon: <RotateCcw className="h-5 w-5" />,
-      title: "Retours gratuits",
-      description: "30 jours pour changer d'avis",
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "Paiement sécurisé",
-      description: "SSL & 3D Secure",
-    },
-    {
-      icon: <Clock className="h-5 w-5" />,
-      title: "Support 24/7",
-      description: "Assistance en continu",
-    },
-  ]
-
-  const socialLinks = [
-    { name: "Facebook", href: "https://facebook.com/djigaflow", icon: <Facebook className="h-5 w-5" /> },
-    { name: "Instagram", href: "https://instagram.com/djigaflow", icon: <Instagram className="h-5 w-5" /> },
-    { name: "Twitter", href: "https://twitter.com/djigaflow", icon: <Twitter className="h-5 w-5" /> },
-    { name: "YouTube", href: "https://youtube.com/djigaflow", icon: <Youtube className="h-5 w-5" /> },
-    { name: "LinkedIn", href: "https://linkedin.com/company/djigaflow", icon: <Linkedin className="h-5 w-5" /> },
-  ]
-
-  const paymentMethods = ["Visa", "Mastercard", "PayPal", "Apple Pay", "Google Pay", "Klarna"]
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
-
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      {/* Features Section */}
-      <div className="border-b border-gray-700">
-        <ResponsiveContainer spacing="lg">
-          <ResponsiveGrid cols={4}>
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                className="flex items-center space-x-4 p-4 rounded-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  {feature.icon}
-                </div>
-                <div className="min-w-0">
-                  <ResponsiveTypography variant="body" className="font-semibold text-white">
-                    {feature.title}
-                  </ResponsiveTypography>
-                  <ResponsiveTypography variant="caption" className="text-gray-300">
-                    {feature.description}
-                  </ResponsiveTypography>
-                </div>
-              </motion.div>
-            ))}
-          </ResponsiveGrid>
-        </ResponsiveContainer>
+    <footer className="bg-muted/30 border-t">
+      {/* Newsletter Section */}
+      <div className="border-b">
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-2xl mx-auto">
+            <EnhancedNewsletterForm variant="compact" showBenefits={false} />
+          </div>
+        </div>
       </div>
 
       {/* Main Footer Content */}
-      <ResponsiveContainer spacing="xl">
-        <ResponsiveGrid cols={6} className="lg:grid-cols-6">
-          {/* Brand Section */}
-          <div className="col-span-full lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <Link href="/" className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">D</span>
-                </div>
-                <div>
-                  <ResponsiveTypography variant="h5" className="text-white font-bold">
-                    DjigaFlow
-                  </ResponsiveTypography>
-                  <ResponsiveTypography variant="caption" className="text-gray-400">
-                    Votre boutique tendance
-                  </ResponsiveTypography>
-                </div>
-              </Link>
-
-              <ResponsiveTypography variant="body" className="text-gray-300 mb-6 leading-relaxed">
-                Découvrez notre sélection de produits tendance à prix compétitifs. Livraison rapide, service client
-                exceptionnel et satisfaction garantie.
-              </ResponsiveTypography>
-
-              {/* Newsletter */}
-              <div className="space-y-4">
-                <ResponsiveTypography variant="h6" className="text-white">
-                  Newsletter
-                </ResponsiveTypography>
-                <ResponsiveTypography variant="body-sm" className="text-gray-400">
-                  Recevez nos offres exclusives et nouveautés
-                </ResponsiveTypography>
-                <ResponsiveFlex gap="sm">
-                  <Input
-                    type="email"
-                    placeholder="Votre email"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400 flex-1"
-                  />
-                  <ResponsiveButton variant="gradient" size="md">
-                    <Mail className="h-4 w-4" />
-                  </ResponsiveButton>
-                </ResponsiveFlex>
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center space-x-2 mb-4">
+              <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">DJ</span>
               </div>
-            </motion.div>
+              <span className="font-bold text-xl">DjigaFlow</span>
+            </div>
+            <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+              Votre marketplace de confiance pour tous vos achats en ligne. Qualité, rapidité et service client
+              exceptionnel.
+            </p>
+
+            {/* Contact Info */}
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Phone className="h-4 w-4" />
+                <span>+33 1 23 45 67 89</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Mail className="h-4 w-4" />
+                <span>contact@djigaflow.com</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <MapPin className="h-4 w-4" />
+                <span>123 Rue de la Paix, 75001 Paris</span>
+              </div>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <ResponsiveTypography variant="h6" className="text-white mb-6">
-              Liens rapides
-            </ResponsiveTypography>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm flex items-center space-x-2"
-                  >
-                    <span>{link.name}</span>
-                    {link.badge && (
-                      <Badge variant="secondary" className="text-xs">
-                        {link.badge}
-                      </Badge>
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          {/* Footer Links */}
+          {Object.entries(footerLinks).map(([key, section]) => (
+            <div key={key}>
+              <h3 className="font-semibold mb-4">{section.title}</h3>
+              <ul className="space-y-2">
+                {section.links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-          {/* Customer Service */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <ResponsiveTypography variant="h6" className="text-white mb-6">
-              Service client
-            </ResponsiveTypography>
-            <ul className="space-y-3">
-              {customerService.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        {/* Trust Badges */}
+        <div className="mt-12 pt-8 border-t">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {trustBadges.map((badge, index) => {
+              const Icon = badge.icon
+              return (
+                <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Icon className="h-4 w-4 text-primary" />
+                  <span>{badge.text}</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
 
-          {/* Company */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <ResponsiveTypography variant="h6" className="text-white mb-6">
-              Entreprise
-            </ResponsiveTypography>
-            <ul className="space-y-3">
-              {company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Contact & Legal */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <ResponsiveTypography variant="h6" className="text-white mb-6">
-              Contact
-            </ResponsiveTypography>
-            <div className="space-y-4 mb-6">
-              <Link
-                href="/contact"
-                className="flex items-center text-gray-300 hover:text-white transition-colors text-sm"
-              >
-                <Phone className="h-4 w-4 mr-3 text-blue-400" />
-                +33 1 23 45 67 89
-              </Link>
-              <Link
-                href="/contact"
-                className="flex items-center text-gray-300 hover:text-white transition-colors text-sm"
-              >
-                <Mail className="h-4 w-4 mr-3 text-blue-400" />
-                contact@djigaflow.com
-              </Link>
-              <div className="flex items-start text-gray-300 text-sm">
-                <MapPin className="h-4 w-4 mr-3 mt-0.5 text-blue-400 flex-shrink-0" />
-                <span>
-                  123 Rue du Commerce
-                  <br />
-                  75001 Paris, France
-                </span>
+        {/* Social Links & Payment Methods */}
+        <div className="mt-8 pt-8 border-t">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-medium">Suivez-nous :</span>
+              <div className="flex gap-2">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon
+                  return (
+                    <Button key={social.name} variant="ghost" size="sm" asChild>
+                      <Link href={social.href} target="_blank" rel="noopener noreferrer">
+                        <Icon className="h-4 w-4" />
+                        <span className="sr-only">{social.name}</span>
+                      </Link>
+                    </Button>
+                  )
+                })}
               </div>
             </div>
 
-            <ResponsiveTypography variant="body-sm" className="text-white font-semibold mb-3">
-              Légal
-            </ResponsiveTypography>
-            <ul className="space-y-2">
-              {legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200 text-xs"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </ResponsiveGrid>
-      </ResponsiveContainer>
-
-      {/* Bottom Section */}
-      <div className="border-t border-gray-700">
-        <ResponsiveContainer spacing="lg">
-          <ResponsiveFlex direction="responsive-row" justify="between" align="center" gap="lg">
-            {/* Copyright */}
-            <motion.div
-              className="text-center lg:text-left"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <ResponsiveTypography variant="body-sm" className="text-gray-400">
-                &copy; {currentYear} DjigaFlow. Tous droits réservés.
-              </ResponsiveTypography>
-              <ResponsiveTypography variant="caption" className="text-gray-500 mt-1">
-                Plateforme de dropshipping professionnelle
-              </ResponsiveTypography>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <ResponsiveFlex gap="sm">
-                {socialLinks.map((social) => (
-                  <Link
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110"
-                  >
-                    {social.icon}
-                    <span className="sr-only">{social.name}</span>
-                  </Link>
-                ))}
-              </ResponsiveFlex>
-            </motion.div>
-
             {/* Payment Methods */}
-            <motion.div
-              className="flex flex-col items-center lg:items-end"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <ResponsiveTypography variant="caption" className="text-gray-400 mb-3">
-                Paiements sécurisés :
-              </ResponsiveTypography>
-              <ResponsiveFlex gap="xs" className="flex-wrap justify-center lg:justify-end">
-                {paymentMethods.map((method) => (
-                  <div
-                    key={method}
-                    className="px-3 py-1.5 bg-white/10 rounded text-xs text-gray-300 border border-white/20 hover:bg-white/20 transition-colors"
-                  >
-                    {method}
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-medium">Paiement sécurisé :</span>
+              <div className="flex gap-2">
+                {["visa", "mastercard", "paypal", "apple-pay"].map((method) => (
+                  <div key={method} className="w-8 h-6 bg-muted rounded border flex items-center justify-center">
+                    <span className="text-xs font-bold uppercase">{method.slice(0, 2)}</span>
                   </div>
                 ))}
-              </ResponsiveFlex>
-            </motion.div>
-          </ResponsiveFlex>
-
-          {/* Scroll to Top Button */}
-          <div className="flex justify-center mt-8">
-            <ResponsiveButton
-              variant="outline"
-              size="sm"
-              onClick={scrollToTop}
-              className="border-white/20 text-white hover:bg-white/10"
-            >
-              <ArrowUp className="h-4 w-4 mr-2" />
-              Retour en haut
-            </ResponsiveButton>
+              </div>
+            </div>
           </div>
-        </ResponsiveContainer>
+        </div>
+
+        {/* Bottom Bar */}
+        <Separator className="my-8" />
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-4">
+            <p>&copy; {currentYear} DjigaFlow. Tous droits réservés.</p>
+            <span className="hidden md:inline">•</span>
+            <p>Fait avec ❤️ en France</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link href="/plan-du-site" className="hover:text-foreground transition-colors">
+              Plan du site
+            </Link>
+            <Link href="/accessibilite" className="hover:text-foreground transition-colors">
+              Accessibilité
+            </Link>
+            <Link href="/cookies" className="hover:text-foreground transition-colors">
+              Gestion des cookies
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   )

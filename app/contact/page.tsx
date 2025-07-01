@@ -1,16 +1,16 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Phone, Mail, MapPin, Clock, MessageSquare, HelpCircle } from "lucide-react"
+import { Phone, Mail, MessageSquare, HelpCircle } from "lucide-react"
+import { EnhancedContactForm } from "@/components/forms/enhanced-contact-form"
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: "Contact - DjigaFlow | Service Client 24/7",
-  description: "Contactez l'équipe DjigaFlow. Service client disponible 24/7 pour répondre à toutes vos questions.",
-  keywords: "contact, service client, support, aide, DjigaFlow",
+export const metadata: Metadata = {
+  title: "Contact | DjigaFlow",
+  description: "Contactez l'équipe DjigaFlow pour toute question, support technique ou demande de partenariat.",
+  keywords: ["contact", "support", "aide", "service client"],
 }
 
 export default function ContactPage() {
@@ -58,12 +58,12 @@ export default function ContactPage() {
   ]
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 py-12">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
-          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4">
             <div className="text-center">
               <Badge variant="secondary" className="mb-4">
                 Nous contacter
@@ -84,7 +84,7 @@ export default function ContactPage() {
 
         {/* Contact Methods */}
         <section className="py-16">
-          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {contactMethods.map((method, index) => (
                 <Card key={index} className="text-center hover:shadow-lg transition-shadow">
@@ -97,7 +97,7 @@ export default function ContactPage() {
                     <h3 className="text-xl font-semibold mb-2">{method.title}</h3>
                     <p className="text-muted-foreground mb-3">{method.description}</p>
                     <p className="font-medium mb-4">{method.value}</p>
-                    <Button variant="outline" className="w-full">
+                    <Button variant="outline" className="w-full bg-transparent">
                       {method.action}
                     </Button>
                   </CardContent>
@@ -109,122 +109,14 @@ export default function ContactPage() {
 
         {/* Contact Form & Info */}
         <section className="py-16 bg-gray-50">
-          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Envoyez-nous un message</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="firstName" className="block text-sm font-medium mb-2">
-                          Prénom
-                        </label>
-                        <Input id="firstName" placeholder="Votre prénom" />
-                      </div>
-                      <div>
-                        <label htmlFor="lastName" className="block text-sm font-medium mb-2">
-                          Nom
-                        </label>
-                        <Input id="lastName" placeholder="Votre nom" />
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        Email
-                      </label>
-                      <Input id="email" type="email" placeholder="votre@email.com" />
-                    </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                        Sujet
-                      </label>
-                      <Input id="subject" placeholder="Sujet de votre message" />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Message
-                      </label>
-                      <Textarea id="message" rows={5} placeholder="Votre message..." />
-                    </div>
-                    <Button type="submit" className="w-full">
-                      Envoyer le message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-
-              {/* Contact Info */}
-              <div className="space-y-8">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <MapPin className="h-5 w-5" />
-                      Nos bureaux
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold">Siège social</h4>
-                        <p className="text-muted-foreground">
-                          123 Rue du Commerce
-                          <br />
-                          75001 Paris, France
-                        </p>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold">Centre logistique</h4>
-                        <p className="text-muted-foreground">
-                          456 Avenue de la Logistique
-                          <br />
-                          69000 Lyon, France
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Clock className="h-5 w-5" />
-                      Horaires de support
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span>Lundi - Vendredi</span>
-                        <span className="font-medium">24h/24</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Weekend</span>
-                        <span className="font-medium">24h/24</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Jours fériés</span>
-                        <span className="font-medium">24h/24</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 p-3 bg-green-50 rounded-lg">
-                      <p className="text-sm text-green-700">
-                        <strong>Support 24/7 :</strong> Notre équipe est toujours disponible pour vous aider !
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+          <div className="container mx-auto px-4">
+            <EnhancedContactForm showContactInfo={true} />
           </div>
         </section>
 
         {/* FAQ Section */}
         <section className="py-16">
-          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Questions fréquentes</h2>
               <p className="text-xl text-muted-foreground">
