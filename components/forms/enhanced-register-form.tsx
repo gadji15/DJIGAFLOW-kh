@@ -82,7 +82,6 @@ export function EnhancedRegisterForm() {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors, isSubmitting, isValid },
     watch,
     trigger,
@@ -159,12 +158,17 @@ export function EnhancedRegisterForm() {
 
   const onSubmit = async (data: RegisterFormData) => {
     try {
-      await registerUser(data.email, data.password, `${data.firstName} ${data.lastName}`)
+      const { error: registerError } = await registerUser(data.email, data.password, data.firstName, data.lastName)
 
-      success("Compte créé avec succès !", "Bienvenue sur DjigaFlow")
-      router.push("/compte")
-    } catch (e) {
-      error("Erreur lors de la création du compte", "Veuillez vérifier vos informations et réessayer.")
+      if (!registerError) {
+        success("Compte créé avec succès !", "Bienvenue sur DjigaFlow")
+        router.push("/compte")
+      } else {
+        // Affiche un message d'erreur explicite venant de Supabase
+        error("Erreur lors de la création du compte", registerError.message || "Veuillez vérifier vos informations et réessayer.")
+      }
+    } catch (e: any) {
+      error("Erreur inattendue", e?.message || "Veuillez vérifier vos informations et réessayer.")
     }
   }
 
