@@ -81,6 +81,7 @@ export function EnhancedRegisterForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors, isSubmitting, isValid },
     watch,
     trigger,
