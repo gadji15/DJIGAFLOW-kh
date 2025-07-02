@@ -76,7 +76,7 @@ export function EnhancedRegisterForm() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [currentStep, setCurrentStep] = useState(1)
   const router = useRouter()
-  const { signUp, isLoading } = useAuth()
+  const { register: registerUser, isLoading } = useAuth()
   const { success, error } = useToast()
 
   const {
@@ -158,7 +158,7 @@ export function EnhancedRegisterForm() {
 
   const onSubmit = async (data: RegisterFormData) => {
     try {
-      const { error: registerError } = await signUp(data.email, data.password, data.firstName, data.lastName)
+      const { error: registerError } = await registerUser(data.email, data.password, data.firstName, data.lastName)
 
       if (!registerError) {
         success("Compte créé avec succès !", "Bienvenue sur DjigaFlow")
