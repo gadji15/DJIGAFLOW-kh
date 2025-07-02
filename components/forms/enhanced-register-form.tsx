@@ -17,7 +17,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Progress } from "@/components/ui/progress"
 import { SocialLoginButtons } from "@/components/auth/social-login-buttons"
 import { useAuth } from "@/components/auth-provider"
-import { toast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast"
 
 const registerSchema = z
   .object({
@@ -77,11 +77,11 @@ export function EnhancedRegisterForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const router = useRouter()
   const { register: registerUser, isLoading } = useAuth()
+  const { success, error } = useToast()
 
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors, isSubmitting, isValid },
     watch,
     trigger,
@@ -160,20 +160,10 @@ export function EnhancedRegisterForm() {
     try {
       await registerUser(data.email, data.password, `${data.firstName} ${data.lastName}`)
 
-      toast({
-        title: "Compte créé avec succès !",
-        description: "Bienvenue sur DjigaFlow",
-        duration: 3000,
-      })
-
+      success("Compte créé avec succès !", "Bienvenue sur DjigaFlow")
       router.push("/compte")
-    } catch (error) {
-      toast({
-        title: "Erreur lors de la création du compte",
-        description: "Veuillez vérifier vos informations et réessayer.",
-        variant: "destructive",
-        duration: 5000,
-      })
+    } catch (e) {
+      error("Erreur lors de la création du compte", "Veuillez vérifier vos informations et réessayer.")
     }
   }
 
