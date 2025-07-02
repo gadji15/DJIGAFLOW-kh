@@ -377,7 +377,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION update_product_rating(product_uuid UUID)
-RETURNS VOID AS $$
+RETURNS VOID AS $
 DECLARE
   avg_rating DECIMAL(3,2);
   review_count INTEGER;
@@ -396,7 +396,18 @@ BEGIN
     updated_at = NOW()
   WHERE id = product_uuid;
 END;
-$$ LANGUAGE plpgsql;
+$ LANGUAGE plpgsql;
+
+-- Wrapper trigger function that delegates to update_product_rating()
+CREATE OR REPLACE FUNCTION update_product_rating_trigger()
+RETURNS TRIGGER AS $
+BEGIN
+  -- Call the helper to recalculate rating for the affected product
+  PERFORM update_product_rating(COALESCE(NEW.product_id, OLD.product_id));
+  -- Pass the row along (for AFTER triggers we can return either NEW or OLD)
+  RETURN COALESCE(NEW, OLD);
+END;
+$ LANGUAGE plpgsql;
 
 -- Triggers
 CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -465,7 +476,7 @@ CREATE TRIGGER trigger_auto_generate_order_number
 CREATE TRIGGER trigger_update_product_rating
   AFTER INSERT OR UPDATE OR DELETE ON product_reviews
   FOR EACH ROW
-  EXECUTE FUNCTION update_product_rating(COALESCE(NEW.product_id, OLD.product_id));
+  EXECUTE FUNCTION update_product_rating_trigger();
 
 -- RLS (Row Level Security) pour la sécurité
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
