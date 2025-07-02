@@ -402,9 +402,8 @@ $ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION update_product_rating_trigger()
 RETURNS TRIGGER AS $
 BEGIN
-  -- Call the helper to recalculate rating for the affected product
+  -- Appelle la fonction métier avec l’identifiant produit concerné
   PERFORM update_product_rating(COALESCE(NEW.product_id, OLD.product_id));
-  -- Pass the row along (for AFTER triggers we can return either NEW or OLD)
   RETURN COALESCE(NEW, OLD);
 END;
 $ LANGUAGE plpgsql;
@@ -473,6 +472,10 @@ CREATE TRIGGER trigger_auto_generate_order_number
   EXECUTE FUNCTION auto_generate_order_number();
 
 -- Trigger pour mettre à jour les notes des produits
+CREATE TRIGGER trigger_update_product_rating
+  AFTER INSERT OR UPDATE OR DELETE ON product_reviews
+  FOR EACH ROW
+  EXECUTE FUNCTION update_product_rating_trigger();
 CREATE TRIGGER trigger_update_product_rating
   AFTER INSERT OR UPDATE OR DELETE ON product_reviews
   FOR EACH ROW
