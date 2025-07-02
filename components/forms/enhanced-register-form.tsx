@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { motion, AnimatePresence } from "framer-motion"
 import { z } from "zod"
@@ -663,19 +663,30 @@ export function EnhancedRegisterForm() {
 
                   {/* Terms and Newsletter */}
                   <div className="space-y-4">
-                    <div className="flex items-start space-x-2">
-                      <Checkbox id="acceptTerms" {...register("acceptTerms")} className="mt-1" />
-                      <Label htmlFor="acceptTerms" className="text-sm font-normal cursor-pointer leading-relaxed">
-                        J'accepte les{" "}
-                        <Link href="/conditions-utilisation" className="text-primary hover:underline">
-                          conditions d'utilisation
-                        </Link>{" "}
-                        et la{" "}
-                        <Link href="/politique-confidentialite" className="text-primary hover:underline">
-                          politique de confidentialité
-                        </Link>
-                      </Label>
-                    </div>
+                    <Controller
+                      name="acceptTerms"
+                      control={control}
+                      render={({ field }) => (
+                        <div className="flex items-start space-x-2">
+                          <Checkbox
+                            id="acceptTerms"
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            className="mt-1"
+                          />
+                          <Label htmlFor="acceptTerms" className="text-sm font-normal cursor-pointer leading-relaxed">
+                            J'accepte les{" "}
+                            <Link href="/conditions-utilisation" className="text-primary hover:underline">
+                              conditions d'utilisation
+                            </Link>{" "}
+                            et la{" "}
+                            <Link href="/politique-confidentialite" className="text-primary hover:underline">
+                              politique de confidentialité
+                            </Link>
+                          </Label>
+                        </div>
+                      )}
+                    />
                     <AnimatePresence>
                       {errors.acceptTerms && (
                         <motion.p
@@ -690,12 +701,23 @@ export function EnhancedRegisterForm() {
                       )}
                     </AnimatePresence>
 
-                    <div className="flex items-start space-x-2">
-                      <Checkbox id="acceptNewsletter" {...register("acceptNewsletter")} className="mt-1" />
-                      <Label htmlFor="acceptNewsletter" className="text-sm font-normal cursor-pointer leading-relaxed">
-                        Je souhaite recevoir la newsletter DjigaFlow
-                      </Label>
-                    </div>
+                    <Controller
+                      name="acceptNewsletter"
+                      control={control}
+                      render={({ field }) => (
+                        <div className="flex items-start space-x-2">
+                          <Checkbox
+                            id="acceptNewsletter"
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            className="mt-1"
+                          />
+                          <Label htmlFor="acceptNewsletter" className="text-sm font-normal cursor-pointer leading-relaxed">
+                            Je souhaite recevoir la newsletter DjigaFlow
+                          </Label>
+                        </div>
+                      )}
+                    />
                     <AnimatePresence>
                       {errors.acceptNewsletter && (
                         <motion.p
