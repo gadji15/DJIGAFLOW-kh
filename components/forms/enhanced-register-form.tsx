@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { motion, AnimatePresence } from "framer-motion"
 import { z } from "zod"
@@ -17,7 +17,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Progress } from "@/components/ui/progress"
 import { SocialLoginButtons } from "@/components/auth/social-login-buttons"
 import { useAuth } from "@/components/auth-provider"
-import { toast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast"
 
 const registerSchema = z
   .object({
@@ -76,7 +76,8 @@ export function EnhancedRegisterForm() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [currentStep, setCurrentStep] = useState(1)
   const router = useRouter()
-  const { register: registerUser, isLoading } = useAuth()
+  const { signUp, isLoading } = useAuth()
+  const { success, error } = useToast()
 
   const {
     register,
@@ -157,22 +158,17 @@ export function EnhancedRegisterForm() {
 
   const onSubmit = async (data: RegisterFormData) => {
     try {
-      await registerUser(data.email, data.password, `${data.firstName} ${data.lastName}`)
+      const { error: registerError } = await signUp(data.email, data.password, data.firstName, data.lastName)
 
-      toast({
-        title: "Compte créé avec succès !",
-        description: "Bienvenue sur DjigaFlow",
-        duration: 3000,
-      })
-
-      router.push("/compte")
-    } catch (error) {
-      toast({
-        title: "Erreur lors de la création du compte",
-        description: "Veuillez vérifier vos informations et réessayer.",
-        variant: "destructive",
-        duration: 5000,
-      })
+      if (!registerError) {
+        success("Compte créé avec succès !", "Bienvenue sur DjigaFlow")
+        router.push("/compte")
+      } else {
+        // Affiche un message d'erreur explicite venant de Supabase
+        error("Erreur lors de la création du compte", registerError.message || "Veuillez vérifier vos informations et réessayer.")
+      }
+    } catch (e: any) {
+      error("Erreur inattendue", e?.message || "Veuillez vérifier vos informations et réessayer.")
     }
   }
 
@@ -663,19 +659,30 @@ export function EnhancedRegisterForm() {
 
                   {/* Terms and Newsletter */}
                   <div className="space-y-4">
-                    <div className="flex items-start space-x-2">
-                      <Checkbox id="acceptTerms" {...register("acceptTerms")} className="mt-1" />
-                      <Label htmlFor="acceptTerms" className="text-sm font-normal cursor-pointer leading-relaxed">
-                        J'accepte les{" "}
-                        <Link href="/conditions-utilisation" className="text-primary hover:underline">
-                          conditions d'utilisation
-                        </Link>{" "}
-                        et la{" "}
-                        <Link href="/politique-confidentialite" className="text-primary hover:underline">
-                          politique de confidentialité
-                        </Link>
-                      </Label>
-                    </div>
+                    <Controller
+                      name="acceptTerms"
+                      control={control}
+                      render={({ field }) => (
+                        <div className="flex items-start space-x-2">
+                          <Checkbox
+                            id="acceptTerms"
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            className="mt-1"
+                          />
+                          <Label htmlFor="acceptTerms" className="text-sm font-normal cursor-pointer leading-relaxed">
+                            J'accepte les{" "}
+                            <Link href="/conditions-utilisation" className="text-primary hover:underline">
+                              conditions d'utilisation
+                            </Link>{" "}
+                            et la{" "}
+                            <Link href="/politique-confidentialite" className="text-primary hover:underline">
+                              politique de confidentialité
+                            </Link>
+                          </Label>
+                        </div>
+                      )}
+                    />
                     <AnimatePresence>
                       {errors.acceptTerms && (
                         <motion.p
@@ -690,12 +697,23 @@ export function EnhancedRegisterForm() {
                       )}
                     </AnimatePresence>
 
-                    <div className="flex items-start space-x-2">
-                      <Checkbox id="acceptNewsletter" {...register("acceptNewsletter")} className="mt-1" />
-                      <Label htmlFor="acceptNewsletter" className="text-sm font-normal cursor-pointer leading-relaxed">
-                        Je souhaite recevoir la newsletter DjigaFlow
-                      </Label>
-                    </div>
+                    <Controller
+                      name="acceptNewsletter"
+                      control={control}
+                      render={({ field }) => (
+                        <div className="flex items-start space-x-2">
+                          <Checkbox
+                            id="acceptNewsletter"
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            className="mt-1"
+                          />
+                          <Label htmlFor="acceptNewsletter" className="text-sm font-normal cursor-pointer leading-relaxed">
+                            Je souhaite recevoir la newsletter DjigaFlow
+                          </Label>
+                        </div>
+                      )}
+                    />
                     <AnimatePresence>
                       {errors.acceptNewsletter && (
                         <motion.p
