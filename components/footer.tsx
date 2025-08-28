@@ -83,6 +83,8 @@ export function Footer() {
     { name: "Facebook", href: siteConfig.social.facebook, icon: <Facebook className="h-5 w-5" /> },
     { name: "Instagram", href: siteConfig.social.instagram, icon: <Instagram className="h-5 w-5" /> },
     { name: "Twitter", href: siteConfig.social.twitter, icon: <Twitter className="h-5 w-5" /> },
+    // TikTok (utilise l'icône Instagram comme placeholder si aucune icône TikTok native n'est disponible)
+    { name: "TikTok", href: siteConfig.social.tiktok, icon: <Instagram className="h-5 w-5" /> },
     { name: "YouTube", href: siteConfig.social.youtube, icon: <Youtube className="h-5 w-5" /> },
     { name: "LinkedIn", href: siteConfig.social.linkedin, icon: <Linkedin className="h-5 w-5" /> },
   ].filter((s) => !!s.href)
