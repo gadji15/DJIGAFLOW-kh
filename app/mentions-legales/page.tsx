@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
@@ -12,7 +11,6 @@ export const metadata = {
 export default function LegalPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -170,7 +168,6 @@ export default function LegalPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }
