@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, Package, Truck, Clock } from "lucide-react"
@@ -10,7 +9,6 @@ export default function OrderConfirmationPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 py-12">
         <div className="container max-w-3xl">
           <div className="text-center mb-8">
@@ -139,7 +137,6 @@ export default function OrderConfirmationPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

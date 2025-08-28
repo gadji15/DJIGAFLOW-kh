@@ -1,5 +1,3 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,7 +7,6 @@ import CartItems from "./cart-items"
 export default function CartPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 py-8">
         <div className="container">
           <h1 className="text-3xl font-bold mb-6">Votre panier</h1>
@@ -76,7 +73,6 @@ export default function CartPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

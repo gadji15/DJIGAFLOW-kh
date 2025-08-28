@@ -51,7 +51,7 @@ export default function AdminSidebar() {
     <div className="w-64 bg-card border-r min-h-screen p-4">
       <div className="mb-8">
         <h2 className="text-2xl font-bold">Admin Panel</h2>
-        <p className="text-sm text-muted-foreground">DjigaFlow</p>
+        <p className="text-sm text-muted-foreground">JammShop</p>
       </div>
 
       <nav className="space-y-2">

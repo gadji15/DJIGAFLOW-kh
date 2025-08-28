@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -8,10 +7,10 @@ import { Search, ChevronDown, HelpCircle, MessageSquare } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {
-  title: "FAQ - Questions Fréquentes | DjigaFlow",
+  title: "FAQ - Questions Fréquentes | JammShop",
   description:
-    "Trouvez des réponses à toutes vos questions sur DjigaFlow : commandes, livraisons, retours, paiements et plus.",
-  keywords: "FAQ, questions fréquentes, aide, support, DjigaFlow, commandes, livraison",
+    "Trouvez des réponses à toutes vos questions sur JammShop : commandes, livraisons, retours, paiements et plus.",
+  keywords: "FAQ, questions fréquentes, aide, support, JammShop, commandes, livraison",
 }
 
 export default function FAQPage() {
@@ -142,7 +141,6 @@ export default function FAQPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
@@ -158,7 +156,7 @@ export default function FAQPage() {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                Trouvez rapidement des réponses à toutes vos questions sur DjigaFlow.
+                Trouvez rapidement des réponses à toutes vos questions sur JammShop.
               </p>
 
               {/* Search Bar */}
@@ -228,7 +226,6 @@ export default function FAQPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

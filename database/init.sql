@@ -1,4 +1,4 @@
--- Création des tables pour DjigaFlow
+-- Création des tables pour JammShop
 
 -- Table des catégories
 CREATE TABLE categories (

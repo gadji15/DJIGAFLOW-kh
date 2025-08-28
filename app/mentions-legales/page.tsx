@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
@@ -12,7 +11,6 @@ export const metadata = {
 export default function LegalPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -56,9 +54,9 @@ export default function LegalPage() {
                 <div>
                   <strong>Directeur de la publication :</strong> Marie Dubois
                   <br />
-                  <strong>Email :</strong> contact@jammshop.com
+                  <strong>Email :</strong> JammShop15@gmail.com
                   <br />
-                  <strong>Téléphone :</strong> +33 1 23 45 67 89
+                  <strong>Téléphone :</strong> +221766304380
                 </div>
               </CardContent>
             </Card>
@@ -118,7 +116,7 @@ export default function LegalPage() {
                   plus précise possible.
                 </p>
                 <p>
-                  DjigaFlow ne pourra être tenue responsable des dommages directs et indirects causés au matériel de
+                  JammShop ne pourra être tenue responsable des dommages directs et indirects causés au matériel de
                   l'utilisateur, lors de l'accès au site, et résultant soit de l'utilisation d'un matériel ne répondant
                   pas aux spécifications indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.
                 </p>
@@ -132,12 +130,12 @@ export default function LegalPage() {
               <CardContent className="space-y-4">
                 <p>
                   Des liens hypertextes peuvent être présents sur le site. L'utilisateur est informé qu'en cliquant sur
-                  ces liens, il sortira du site djigaflow.com. Ce dernier n'a pas de contrôle sur les pages web sur
+                  ces liens, il sortira du site jammshop.com. Ce dernier n'a pas de contrôle sur les pages web sur
                   lesquelles aboutissent ces liens et ne saurait, en aucun cas, être responsable de leur contenu.
                 </p>
                 <p>
-                  La création de liens hypertextes vers le site djigaflow.com ne peut être faite qu'avec l'autorisation
-                  écrite préalable de DjigaFlow.
+                  La création de liens hypertextes vers le site jammshop.com ne peut être faite qu'avec l'autorisation
+                  écrite préalable de JammShop.
                 </p>
               </CardContent>
             </Card>
@@ -148,7 +146,7 @@ export default function LegalPage() {
               </CardHeader>
               <CardContent>
                 <p>
-                  Tout litige en relation avec l'utilisation du site djigaflow.com est soumis au droit français. Il est
+                  Tout litige en relation avec l'utilisation du site jammshop.com est soumis au droit français. Il est
                   fait attribution exclusive de juridiction aux tribunaux compétents de Paris.
                 </p>
               </CardContent>
@@ -161,8 +159,8 @@ export default function LegalPage() {
               <CardContent>
                 <p>Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter :</p>
                 <ul className="list-disc list-inside space-y-1 mt-2">
-                  <li>Par email : contact@djigaflow.com</li>
-                  <li>Par téléphone : +33 1 23 45 67 89</li>
+                  <li>Par email : JammShop15@gmail.com</li>
+                  <li>Par téléphone : +221766304380</li>
                   <li>Par courrier : 123 Rue du Commerce, 75001 Paris, France</li>
                 </ul>
               </CardContent>
@@ -170,7 +168,6 @@ export default function LegalPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

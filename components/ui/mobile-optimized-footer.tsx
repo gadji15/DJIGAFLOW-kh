@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronDown, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { TikTokIcon } from "@/components/ui/icons/tiktok"
 import { cn } from "@/lib/utils"
+import { siteConfig } from "@/lib/site-config"
 
 export function MobileOptimizedFooter() {
   const [openSections, setOpenSections] = useState<string[]>([])
@@ -49,11 +51,13 @@ export function MobileOptimizedFooter() {
   ]
 
   const socialLinks = [
-    { href: "#", icon: Facebook, label: "Facebook" },
-    { href: "#", icon: Twitter, label: "Twitter" },
-    { href: "#", icon: Instagram, label: "Instagram" },
-    { href: "#", icon: Youtube, label: "YouTube" },
-  ]
+    { href: siteConfig.social.facebook, icon: Facebook, label: "Facebook" },
+    { href: siteConfig.social.twitter, icon: Twitter, label: "Twitter" },
+    { href: siteConfig.social.instagram, icon: Instagram, label: "Instagram" },
+    { href: siteConfig.social.tiktok, icon: TikTokIcon, label: "TikTok" },
+    { href: siteConfig.social.youtube, icon: Youtube, label: "YouTube" },
+    { href: siteConfig.social.linkedin, icon: Instagram, label: "LinkedIn" },
+  ].filter((s) => !!s.href)
 
   return (
     <footer className="bg-muted/30 border-t">
@@ -138,15 +142,15 @@ export function MobileOptimizedFooter() {
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <Phone className="h-4 w-4" />
-                  <span>+225 01 02 03 04 05</span>
+                  <span>{siteConfig.contact.phone}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
-                  <span>contact@djigaflow.com</span>
+                  <span>{siteConfig.contact.email}</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <MapPin className="h-4 w-4 mt-0.5" />
-                  <span>Abidjan, Côte d'Ivoire</span>
+                  <span>{siteConfig.address.line1}, {siteConfig.address.postalCode} {siteConfig.address.city}, {siteConfig.address.country}</span>
                 </div>
               </div>
             </div>
@@ -158,11 +162,11 @@ export function MobileOptimizedFooter() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>+225 01 02 03 04 05</span>
+                <span>{siteConfig.contact.phone}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>contact@djigaflow.com</span>
+                <span>{siteConfig.contact.email}</span>
               </div>
             </div>
           </div>
@@ -173,7 +177,7 @@ export function MobileOptimizedFooter() {
           <div className="flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0">
             {/* Copyright */}
             <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
-              © 2024 DjigaFlow. Tous droits réservés.
+              © {new Date().getFullYear()} {siteConfig.name}. Tous droits réservés.
             </p>
 
             {/* Social Links */}

@@ -1,11 +1,11 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Phone, Mail, MessageSquare, HelpCircle } from "lucide-react"
 import { EnhancedContactForm } from "@/components/forms/enhanced-contact-form"
 import type { Metadata } from "next"
+import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "Contact | JammShop",
@@ -17,16 +17,16 @@ export default function ContactPage() {
   const contactMethods = [
     {
       icon: <Phone className="h-6 w-6" />,
-      title: "Téléphone",
+      title: "Téléphone / WhatsApp",
       description: "Service client disponible 24/7",
-      value: "+33 1 23 45 67 89",
+      value: siteConfig.contact.phone,
       action: "Appeler maintenant",
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
       description: "Réponse sous 2h en moyenne",
-      value: "contact@djigaflow.com",
+      value: siteConfig.contact.email,
       action: "Envoyer un email",
     },
     {
@@ -59,7 +59,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 py-12">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
@@ -146,7 +145,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

@@ -488,7 +488,7 @@ CREATE POLICY "Users can update own reviews" ON product_reviews FOR UPDATE USING
 
 -- Insérer des paramètres système par défaut
 INSERT INTO system_settings (key, value, description, category, is_public) VALUES
-('site_name', '"DjigaFlow"', 'Nom du site', 'general', true),
+('site_name', '"JammShop"', 'Nom du site', 'general', true),
 ('site_description', '"Plateforme de dropshipping automatisée"', 'Description du site', 'general', true),
 ('default_currency', '"EUR"', 'Devise par défaut', 'general', true),
 ('default_markup_percentage', '50', 'Marge par défaut en pourcentage', 'pricing', false),

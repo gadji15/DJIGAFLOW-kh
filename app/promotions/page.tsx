@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -28,7 +27,6 @@ export default async function PromotionsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 py-8">
         <div className="container">
           <div className="relative mb-8">
@@ -154,7 +152,6 @@ export default async function PromotionsPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

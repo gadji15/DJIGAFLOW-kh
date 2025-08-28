@@ -19,6 +19,8 @@ import {
   Clock,
 } from "lucide-react"
 import { motion } from "framer-motion"
+import { siteConfig } from "@/lib/site-config"
+import { TikTokIcon } from "@/components/ui/icons/tiktok"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -79,12 +81,13 @@ export function Footer() {
   ]
 
   const socialLinks = [
-    { name: "Facebook", href: "https://facebook.com/djigaflow", icon: <Facebook className="h-5 w-5" /> },
-    { name: "Instagram", href: "https://instagram.com/djigaflow", icon: <Instagram className="h-5 w-5" /> },
-    { name: "Twitter", href: "https://twitter.com/djigaflow", icon: <Twitter className="h-5 w-5" /> },
-    { name: "YouTube", href: "https://youtube.com/djigaflow", icon: <Youtube className="h-5 w-5" /> },
-    { name: "LinkedIn", href: "https://linkedin.com/company/djigaflow", icon: <Linkedin className="h-5 w-5" /> },
-  ]
+    { name: "Facebook", href: siteConfig.social.facebook, icon: <Facebook className="h-5 w-5" /> },
+    { name: "Instagram", href: siteConfig.social.instagram, icon: <Instagram className="h-5 w-5" /> },
+    { name: "Twitter", href: siteConfig.social.twitter, icon: <Twitter className="h-5 w-5" /> },
+    { name: "TikTok", href: siteConfig.social.tiktok, icon: <TikTokIcon className="h-5 w-5" /> },
+    { name: "YouTube", href: siteConfig.social.youtube, icon: <Youtube className="h-5 w-5" /> },
+    { name: "LinkedIn", href: siteConfig.social.linkedin, icon: <Linkedin className="h-5 w-5" /> },
+  ].filter((s) => !!s.href)
 
   const paymentMethods = ["Visa", "Mastercard", "PayPal", "Apple Pay", "Google Pay", "Klarna"]
 
@@ -130,13 +133,13 @@ export function Footer() {
             >
               <Link href="/" className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">D</span>
+                  <span className="text-white font-bold text-xl">J</span>
                 </div>
                 <div>
                   <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    DjigaFlow
+                    {siteConfig.name}
                   </span>
-                  <div className="text-xs text-gray-400">Votre boutique tendance</div>
+                  <div className="text-xs text-gray-400">{siteConfig.tagline}</div>
                 </div>
               </Link>
 
@@ -248,21 +251,21 @@ export function Footer() {
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm"
               >
                 <Phone className="h-4 w-4 mr-3 text-blue-400" />
-                +33 1 23 45 67 89
+                {siteConfig.contact.phone}
               </Link>
               <Link
                 href="/contact"
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm"
               >
                 <Mail className="h-4 w-4 mr-3 text-blue-400" />
-                contact@djigaflow.com
+                {siteConfig.contact.email}
               </Link>
               <div className="flex items-start text-gray-300 text-sm">
                 <MapPin className="h-4 w-4 mr-3 mt-0.5 text-blue-400 flex-shrink-0" />
                 <span>
-                  123 Rue du Commerce
+                  {siteConfig.address.line1}
                   <br />
-                  75001 Paris, France
+                  {siteConfig.address.postalCode} {siteConfig.address.city}, {siteConfig.address.country}
                 </span>
               </div>
             </div>
@@ -296,7 +299,7 @@ export function Footer() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <p className="text-gray-400 text-sm">&copy; {currentYear} DjigaFlow. Tous droits réservés.</p>
+              <p className="text-gray-400 text-sm">&copy; {currentYear} {siteConfig.name}. Tous droits réservés.</p>
               <p className="text-xs text-gray-500 mt-1">Plateforme de dropshipping professionnelle</p>
             </motion.div>
 

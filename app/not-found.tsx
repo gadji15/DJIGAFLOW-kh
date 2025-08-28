@@ -4,13 +4,11 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Home, Search, ArrowLeft, ShoppingBag } from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 
 export default function NotFound() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 flex items-center justify-center py-16">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <div className="mb-8">

@@ -313,7 +313,7 @@ function MobileMenuContent({
             <Store className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">DjigaFlow</h2>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">JammShop</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">Admin Panel</p>
           </div>
         </div>
