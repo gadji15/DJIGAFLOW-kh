@@ -2,7 +2,7 @@
 
 declare const self: ServiceWorkerGlobalScope
 
-const CACHE_NAME = "djigaflow-cache-v1"
+const CACHE_NAME = "jammshop-cache-v1"
 
 // Assets to cache on install
 const PRECACHE_ASSETS = ["/", "/manifest.json", "/icons/favicon.ico", "/icons/apple-touch-icon.png", "/placeholder.svg"]
@@ -144,7 +144,7 @@ self.addEventListener("fetch", (event) => {
 // Push event - handle push notifications
 self.addEventListener("push", (event) => {
   const data = event.data?.json() ?? {}
-  const title = data.title || "DjigaFlow"
+  const title = data.title || "JammShop"
   const options = {
     body: data.body || "Nouvelle notification",
     icon: data.icon || "/icons/apple-touch-icon.png",

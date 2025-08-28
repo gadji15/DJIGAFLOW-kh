@@ -125,13 +125,13 @@ export function UnifiedHeader() {
             <Link href="/" className="flex items-center space-x-3 group">
               <motion.div className="relative" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <div className="h-10 w-10 lg:h-12 lg:w-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <span className="text-white font-bold text-lg lg:text-xl">DJ</span>
+                  <span className="text-white font-bold text-lg lg:text-xl">JS</span>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
               </motion.div>
               <div className="hidden sm:block">
                 <span className="font-bold text-xl lg:text-2xl bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
-                  DjigaFlow
+                  JammShop
                 </span>
                 <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Marketplace Premium</div>
               </div>

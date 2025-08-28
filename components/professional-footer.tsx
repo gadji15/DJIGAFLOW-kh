@@ -99,7 +99,7 @@ export function ProfessionalFooter() {
               <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">DJ</span>
               </div>
-              <span className="font-bold text-xl">DjigaFlow</span>
+              <span className="font-bold text-xl">JammShop</span>
             </div>
             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
               Votre marketplace de confiance pour tous vos achats en ligne. Qualité, rapidité et service client
@@ -197,7 +197,7 @@ export function ProfessionalFooter() {
         <Separator className="my-8" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <div className="flex flex-wrap items-center gap-4">
-            <p>&copy; {currentYear} DjigaFlow. Tous droits réservés.</p>
+            <p>&copy; {currentYear} JammShop. Tous droits réservés.</p>
             <span className="hidden md:inline">•</span>
             <p>Fait avec ❤️ en France</p>
           </div>

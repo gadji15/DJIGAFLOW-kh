@@ -4,9 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 export const metadata = {
-  title: "Mentions Légales - DjigaFlow",
-  description: "Mentions légales, informations sur l'entreprise DjigaFlow et obligations légales.",
-  keywords: "mentions légales, DjigaFlow, informations légales, entreprise",
+  title: "Mentions Légales - JammShop",
+  description: "Mentions légales, informations sur l'entreprise JammShop et obligations légales.",
+  keywords: "mentions légales, JammShop, informations légales, entreprise",
 }
 
 export default function LegalPage() {
@@ -21,7 +21,7 @@ export default function LegalPage() {
             </Badge>
             <h1 className="text-4xl font-bold mb-6">Mentions Légales</h1>
             <p className="text-xl text-muted-foreground">
-              Informations légales concernant DjigaFlow et son exploitation
+              Informations légales concernant JammShop et son exploitation
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export default function LegalPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <strong>Raison sociale :</strong> DjigaFlow SAS
+                  <strong>Raison socia :</</strong> JammShop Snew
                   <br />
                   <strong>Forme juridique :</strong> Société par Actions Simplifiée
                   <br />
@@ -55,7 +55,7 @@ export default function LegalPage() {
                 <div>
                   <strong>Directeur de la publication :</strong> Marie Dubois
                   <br />
-                  <strong>Email :</strong> contact@djigaflow.com
+                  <strong>Email :</strong> contact@jammshop.com
                   <br />
                   <strong>Téléphone :</strong> +33 1 23 45 67 89
                 </div>
