@@ -14,6 +14,7 @@ import {
   Shield,
   Award,
 } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -63,11 +64,12 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com/djigaflow" },
-  { name: "Twitter", icon: Twitter, href: "https://twitter.com/djigaflow" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com/djigaflow" },
-  { name: "YouTube", icon: Youtube, href: "https://youtube.com/djigaflow" },
-]
+  { name: "Facebook", icon: Facebook, href: siteConfig.social.facebook },
+  { name: "Twitter", icon: Twitter, href: siteConfig.social.twitter },
+  { name: "Instagram", icon: Instagram, href: siteConfig.social.instagram },
+  { name: "TikTok", icon: Instagram, href: siteConfig.social.tiktok },
+  { name: "YouTube", icon: Youtube, href: siteConfig.social.youtube },
+].filter((s) =&gt; !!s.href)
 
 const trustBadges = [
   { icon: Shield, text: "Paiement sécurisé" },
@@ -110,15 +112,15 @@ export function ProfessionalFooter() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <span>+33 1 23 45 67 89</span>
+                <span>{siteConfig.contact.phone}</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <span>contact@djigaflow.com</span>
+                <span>{siteConfig.contact.email}</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>123 Rue de la Paix, 75001 Paris</span>
+                <span>{siteConfig.address.line1}, {siteConfig.address.postalCode} {siteConfig.address.city}</span>
               </div>
             </div>
           </div>
