@@ -33,7 +33,7 @@ interface ToastContextType {
   loading: (message: string, title?: string) => void
 }
 
-const ToastContext = createContext<ToastContextType | undefined>(undefined)
+export const ToastContext = createContext<ToastContextType | undefined>(undefined)
 
 const toastIcons = {
   success: CheckCircle,
