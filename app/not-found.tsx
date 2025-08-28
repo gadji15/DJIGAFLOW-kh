@@ -57,7 +57,7 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-  </  dinewer />
+      <Footer />
     </div>
   )
 }
