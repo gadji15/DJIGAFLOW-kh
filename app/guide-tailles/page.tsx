@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -58,7 +57,6 @@ export default function SizeGuidePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
@@ -396,7 +394,6 @@ export default function SizeGuidePage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }
