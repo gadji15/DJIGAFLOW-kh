@@ -15,6 +15,7 @@ import {
   Award,
 } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
+import { TikTokIcon } from "@/components/ui/icons/tiktok"
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -67,7 +68,7 @@ const socialLinks = [
   { name: "Facebook", icon: Facebook, href: siteConfig.social.facebook },
   { name: "Twitter", icon: Twitter, href: siteConfig.social.twitter },
   { name: "Instagram", icon: Instagram, href: siteConfig.social.instagram },
-  { name: "TikTok", icon: Instagram, href: siteConfig.social.tiktok },
+  { name: "TikTok", icon: TikTokIcon, href: siteConfig.social.tiktok },
   { name: "YouTube", icon: Youtube, href: siteConfig.social.youtube },
 ].filter((s) => !!s.href)
 

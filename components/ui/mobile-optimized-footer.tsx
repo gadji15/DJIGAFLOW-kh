@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronDown, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { TikTokIcon } from "@/components/ui/icons/tiktok"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/site-config"
 
@@ -53,7 +54,7 @@ export function MobileOptimizedFooter() {
     { href: siteConfig.social.facebook, icon: Facebook, label: "Facebook" },
     { href: siteConfig.social.twitter, icon: Twitter, label: "Twitter" },
     { href: siteConfig.social.instagram, icon: Instagram, label: "Instagram" },
-    { href: siteConfig.social.tiktok, icon: Instagram, label: "TikTok" },
+    { href: siteConfig.social.tiktok, icon: TikTokIcon, label: "TikTok" },
     { href: siteConfig.social.youtube, icon: Youtube, label: "YouTube" },
     { href: siteConfig.social.linkedin, icon: Instagram, label: "LinkedIn" },
   ].filter((s) => !!s.href)
