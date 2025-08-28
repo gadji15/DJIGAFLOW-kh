@@ -41,8 +41,9 @@ const registerSchema = z
     phone: z
       .string()
       .optional()
-      .refine((val) => !val || /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/.test(val), {
-        message: "Format de téléphone français invalide",
+      // E.164 international format: +[country][number], up to 15 digits
+      .refine((val) => !val || /^\+?[1-9]\d{1,14}$/.test(val), {
+        message: "Format de téléphone invalide (E.164), ex: +221766304380",
       }),
     password: z
       .string()
