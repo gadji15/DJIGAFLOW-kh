@@ -69,7 +69,7 @@ const socialLinks = [
   { name: "Instagram", icon: Instagram, href: siteConfig.social.instagram },
   { name: "TikTok", icon: Instagram, href: siteConfig.social.tiktok },
   { name: "YouTube", icon: Youtube, href: siteConfig.social.youtube },
-].filter((s) =&gt; !!s.href)
+].filter((s) => !!s.href)
 
 const trustBadges = [
   { icon: Shield, text: "Paiement sécurisé" },
