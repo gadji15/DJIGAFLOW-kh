@@ -8,10 +8,10 @@ import { Search, ChevronDown, HelpCircle, MessageSquare } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {
-  title: "FAQ - Questions Fréquentes | DjigaFlow",
+  title: "FAQ - Questions Fréquentes | JammShop",
   description:
-    "Trouvez des réponses à toutes vos questions sur DjigaFlow : commandes, livraisons, retours, paiements et plus.",
-  keywords: "FAQ, questions fréquentes, aide, support, DjigaFlow, commandes, livraison",
+    "Trouvez des réponses à toutes vos questions sur JammShop : commandes, livraisons, retours, paiements et plus.",
+  keywords: "FAQ, questions fréquentes, aide, support, JammShop, commandes, livraison",
 }
 
 export default function FAQPage() {
@@ -158,7 +158,7 @@ export default function FAQPage() {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                Trouvez rapidement des réponses à toutes vos questions sur DjigaFlow.
+                Trouvez rapidement des réponses à toutes vos questions sur JammShop.
               </p>
 
               {/* Search Bar */}

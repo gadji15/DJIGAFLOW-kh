@@ -105,7 +105,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    DjigaFlow est né d'une vision simple : démocratiser l'accès aux produits tendance du monde entier.
+                    JammShop est né d'une vision simple : démocratiser l'accès aux produits tendance du monde entier.
                     Fondée en 2020 par une équipe passionnée d'e-commerce, notre plateforme a rapidement évolué pour
                     devenir une référence dans le dropshipping.
                   </p>
@@ -196,7 +196,7 @@ export default function AboutPage() {
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
           <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Rejoignez l'aventure DjigaFlow</h2>
+            <h2 className="text-3xl font-bold mb-4">Rejoignez l'aventure JammShop</h2>
             <p className="text-xl mb-8 opacity-90">
               Découvrez des milliers de produits tendance et profitez d'une expérience d'achat exceptionnelle.
             </p>

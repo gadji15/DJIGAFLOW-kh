@@ -95,9 +95,9 @@ export default function LegalPage() {
                   formellement interdite sauf autorisation expresse du directeur de la publication.
                 </p>
                 <p>
-                  Les marques et logos figurant sur le site sont déposés par DjigaFlow ou éventuellement par ses
+                  Les marques et logos figurant sur le site sont déposés par JammShop ou éventuellement par ses
                   partenaires. Toute reproduction totale ou partielle de ces marques ou de ces logos effectuée à partir
-                  des éléments du site sans l'autorisation expresse de DjigaFlow est donc prohibée.
+                  des éléments du site sans l'autorisation expresse de JammShop est donc prohibée.
                 </p>
               </CardContent>
             </Card>
@@ -113,7 +113,7 @@ export default function LegalPage() {
                 </p>
                 <p>
                   Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir
-                  le signaler par email, à l'adresse contact@djigaflow.com, en décrivant le problème de la manière la
+                  le signaler par email, à l'adresse contact@jammshop.com, en décrivant le problème de la manière la
                   plus précise possible.
                 </p>
                 <p>

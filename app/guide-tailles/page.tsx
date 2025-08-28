@@ -7,10 +7,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Ruler, User, Shirt, Footprints } from "lucide-react"
 
 export const metadata = {
-  title: "Guide des Tailles - Trouvez la Taille Parfaite | DjigaFlow",
+  title: "Guide des Tailles - Trouvez la Taille Parfaite | JammShop",
   description:
     "Guide complet des tailles pour vêtements, chaussures et accessoires. Tableaux de correspondance et conseils de mesure.",
-  keywords: "guide tailles, mesures, vêtements, chaussures, correspondance, DjigaFlow",
+  keywords: "guide tailles, mesures, vêtements, chaussures, correspondance, JammShop",
 }
 
 export default function SizeGuidePage() {
