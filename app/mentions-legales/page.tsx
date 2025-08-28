@@ -32,11 +32,12 @@ export default function LegalPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <strong>Raison socia :</</strong> JammShop Snew
+                  <strong>Raison sociale :</strong> JammShop SAS
                   <br />
                   <strong>Forme juridique :</strong> Société par Actions Simplifiée
                   <br />
-                  <strong>Capital social :</strong> 100 000 €<br />
+                  <strong>Capital social :</strong> 100 000 €
+                  <br />
                   <strong>RCS :</strong> Paris B 123 456 789
                   <br />
                   <strong>SIRET :</strong> 123 456 789 00012
