@@ -8,10 +8,10 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "À propos de DjigaFlow - Notre Histoire et Mission",
+  title: "À propos de JammShop - Notre Histoire et Mission",
   description:
-    "Découvrez l'histoire de DjigaFlow, notre mission et nos valeurs. Une plateforme de dropshipping innovante pour des produits tendance.",
-  keywords: "DjigaFlow, à propos, histoire, mission, valeurs, dropshipping, e-commerce",
+    "Découvrez l'histoire de JammShop, notre mission et nos valeurs. Une plateforme de dropshipping innovante pour des produits tendance.",
+  keywords: "JammShop, à propos, histoire, mission, valeurs, dropshipping, e-commerce",
 }
 
 export default function AboutPage() {
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 L'histoire de{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  DjigaFlow
+                  JammShop
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    DjigaFlow est né d'une vision simple : démocratiser l'accès aux produits tendance du monde entier.
+                    JammShop est né d'une vision simple : démocratiser l'accès aux produits tendance du monde entier.
                     Fondée en 2020 par une équipe passionnée d'e-commerce, notre plateforme a rapidement évolué pour
                     devenir une référence dans le dropshipping.
                   </p>
@@ -123,7 +123,7 @@ export default function AboutPage() {
               <div className="relative">
                 <Image
                   src="/placeholder.svg?height=400&width=600"
-                  alt="Histoire de DjigaFlow"
+                  alt="Histoire de JammShop"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-lg"
@@ -196,7 +196,7 @@ export default function AboutPage() {
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
           <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Rejoignez l'aventure DjigaFlow</h2>
+            <h2 className="text-3xl font-bold mb-4">Rejoignez l'aventure JammShop</h2>
             <p className="text-xl mb-8 opacity-90">
               Découvrez des milliers de produits tendance et profitez d'une expérience d'achat exceptionnelle.
             </p>

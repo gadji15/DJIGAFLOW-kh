@@ -10,11 +10,11 @@ import { NewsletterSection } from "@/components/sections/newsletter-section"
 import { Skeleton } from "@/components/ui/skeleton"
 
 export const metadata: Metadata = {
-  title: "DjigaFlow - Marketplace Professionnel",
+  title: "JammShop - Marketplace Professionnel",
   description:
-    "Découvrez DjigaFlow, votre marketplace professionnel de confiance. Produits de qualité, livraison rapide et service client exceptionnel.",
+    "Découvrez JammShop, votre marketplace professionnel de confiance. Produits de qualité, livraison rapide et service client exceptionnel.",
   openGraph: {
-    title: "DjigaFlow - Marketplace Professionnel",
+    title: "JammShop - Marketplace Professionnel",
     description: "Votre marketplace de confiance pour tous vos achats en ligne.",
     images: ["/images/hero-og.jpg"],
   },

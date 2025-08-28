@@ -1,6 +1,6 @@
-# DjigaFlow - Site de Dropshipping
+# JammShop - Site de Dropshipping
 
-DjigaFlow est une plateforme de dropshipping complète construite avec Next.js, Tailwind CSS et Supabase.
+JammShop est une plateforme de dropshipping complète construite avec Next.js, Tailwind CSS et Supabase.
 
 ## Fonctionnalités
 
@@ -25,8 +25,8 @@ DjigaFlow est une plateforme de dropshipping complète construite avec Next.js, 
 1. Clonez le dépôt :
 
 \`\`\`bash
-git clone https://github.com/votre-utilisateur/djigaflow.git
-cd djigaflow
+git clone https://github.com/votre-utilisateur/jammshop.git
+cd jammshop
 \`\`\`
 
 2. Installez les dépendances :

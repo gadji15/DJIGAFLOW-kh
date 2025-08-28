@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: CallbackPageProps): Promise<M
   const providerName = providerNames[params.provider as keyof typeof providerNames] || params.provider
 
   return {
-    title: `Connexion ${providerName} | DjigaFlow`,
+    title: `Connexion ${providerName} | JammShop`,
     description: `Finalisation de votre connexion avec ${providerName}`,
   }
 }

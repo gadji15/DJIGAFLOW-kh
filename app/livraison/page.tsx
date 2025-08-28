@@ -7,10 +7,10 @@ import { Truck, Clock, MapPin, Package, Shield, RotateCcw } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Livraison & Retours - Informations Complètes | DjigaFlow",
+  title: "Livraison & Retours - Informations Complètes | JammShop",
   description:
     "Découvrez nos options de livraison, délais, tarifs et politique de retours. Livraison gratuite dès 50€.",
-  keywords: "livraison, retours, délais, tarifs, DjigaFlow, expédition",
+  keywords: "livraison, retours, délais, tarifs, JammShop, expédition",
 }
 
 export default function ShippingPage() {

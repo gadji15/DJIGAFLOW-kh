@@ -7,7 +7,7 @@ export class MFAService {
 
   async generateMFASecret(userId: string): Promise<{ secret: string; qrCode: string }> {
     const secret = authenticator.generateSecret()
-    const service = "DjigaFlow"
+    const service = "JammShop"
     const account = `user-${userId}`
 
     const otpauth = authenticator.keyuri(account, service, secret)

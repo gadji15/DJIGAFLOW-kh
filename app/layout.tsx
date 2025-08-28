@@ -27,21 +27,21 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "DjigaFlow - Marketplace Professionnel",
-    template: "%s | DjigaFlow",
+    default: "JammShop - Marketplace Professionnel",
+    template: "%s | JammShop",
   },
   description:
-    "DjigaFlow est votre marketplace professionnel de confiance. Découvrez des milliers de produits de qualité avec livraison rapide et service client exceptionnel.",
+    "JammShop est votre marketplace professionnel de confiance. Découvrez des milliers de produits de qualité avec livraison rapide et service client exceptionnel.",
   keywords: ["marketplace", "e-commerce", "dropshipping", "produits", "livraison", "qualité", "professionnel"],
-  authors: [{ name: "DjigaFlow Team", url: "https://djigaflow.com" }],
-  creator: "DjigaFlow",
-  publisher: "DjigaFlow",
+  authors: [{ name: "JammShop Team", url: "https://jammshop.com" }],
+  creator: "JammShop",
+  publisher: "JammShop",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://djigaflow.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jammshop.com"),
   alternates: {
     canonical: "/",
     languages: {
@@ -53,21 +53,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: "/",
-    siteName: "DjigaFlow",
-    title: "DjigaFlow - Marketplace Professionnel",
+    siteName: "JammShop",
+    title: "JammShop - Marketplace Professionnel",
     description: "Votre marketplace de confiance pour tous vos achats en ligne.",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "DjigaFlow - Marketplace Professionnel",
+        alt: "JammShop - Marketplace Professionnel",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DjigaFlow - Marketplace Professionnel",
+    title: "JammShop - Marketplace Professionnel",
     description: "Votre marketplace de confiance pour tous vos achats en ligne.",
     images: ["/images/og-image.jpg"],
     creator: "@djigaflow",
