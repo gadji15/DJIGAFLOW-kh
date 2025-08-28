@@ -15,10 +15,10 @@ export const siteConfig = {
     linkedin: "",
   },
   address: {
-    line1: "123 Rue du Commerce",
-    postalCode: "75001",
-    city: "Paris",
-    country: "France",
+    line1: "Saly",
+    postalCode: "",
+    city: "Mbour",
+    country: "Sénégal",
   },
   paymentMethods: ["Visa", "Mastercard", "PayPal", "Apple Pay", "Google Pay", "Klarna"],
 } as const;
