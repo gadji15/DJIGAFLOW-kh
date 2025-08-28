@@ -27,11 +27,6 @@ import { toast } from "sonner"
 
 const navigation = [
   {
-    name: "Accueil",
-    href: "/",
-    description: "Page d'accueil",
-  },
-  {
     name: "Catalogue",
     href: "/catalogue",
     description: "Tous nos produits",

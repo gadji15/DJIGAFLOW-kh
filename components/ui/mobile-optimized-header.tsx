@@ -31,7 +31,6 @@ export function MobileOptimizedHeader({
   }, [])
 
   const navigationItems = [
-    { href: "/", label: "Accueil" },
     { href: "/catalogue", label: "Catalogue" },
     { href: "/nouveautes", label: "Nouveautés" },
     { href: "/promotions", label: "Promotions" },
