@@ -52,9 +52,9 @@ export function MobileOptimizedHeader({
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm sm:text-base">D</span>
+              <span className="text-primary-foreground font-bold text-sm sm:text-base">J</span>
             </div>
-            <span className="font-bold text-lg sm:text-xl text-foreground">DjigaFlow</span>
+            <span className="font-bold text-lg sm:text-xl text-foreground">JammShop</span>
           </Link>
 
           {/* Desktop Navigation */}

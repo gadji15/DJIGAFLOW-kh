@@ -45,11 +45,11 @@ export default function AdminSettingsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="site-name">Nom du site</Label>
-                  <Input id="site-name" defaultValue="DjigaFlow" />
+                  <Input id="site-name" defaultValue="JammShop" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="site-url">URL du site</Label>
-                  <Input id="site-url" defaultValue="https://djigaflow.com" />
+                  <Input id="site-url" defaultValue="https://jammshop.com" />
                 </div>
               </div>
 

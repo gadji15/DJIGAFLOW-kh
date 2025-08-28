@@ -75,7 +75,7 @@ export function FeaturesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
-            Pourquoi Choisir DjigaFlow ?
+            Pourquoi Choisir JammShop ?
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Nous nous engageons à vous offrir une expérience d'achat exceptionnelle avec des services premium

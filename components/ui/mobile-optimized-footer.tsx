@@ -49,10 +49,10 @@ export function MobileOptimizedFooter() {
   ]
 
   const socialLinks = [
-    { href: "#", icon: Facebook, label: "Facebook" },
-    { href: "#", icon: Twitter, label: "Twitter" },
-    { href: "#", icon: Instagram, label: "Instagram" },
-    { href: "#", icon: Youtube, label: "YouTube" },
+    { href: "https://www.facebook.com/share/1Ch5odyw8Y/", icon: Facebook, label: "Facebook" },
+    { href: "https://x.com/SunuGain15?t=LiLJSyvhrNgBrnHhCeNftA&s=35", icon: Twitter, label: "Twitter" },
+    { href: "https://www.instagram.com/jammshop15?igsh=MTNyamJlNWRnanB3OA==", icon: Instagram, label: "Instagram" },
+    { href: "https://www.tiktok.com/@jammshop5?_t=ZT-8zFw4JvFPva&_r=1", icon: Youtube, label: "YouTube" },
   ]
 
   return (

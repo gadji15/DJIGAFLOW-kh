@@ -161,7 +161,7 @@ export function EnhancedRegisterForm() {
       const { error: registerError } = await signUp(data.email, data.password, data.firstName, data.lastName)
 
       if (!registerError) {
-        success("Compte créé avec succès !", "Bienvenue sur DjigaFlow")
+        success("Compte créé avec succès !", "Bienvenue sur JammShop")
         router.push("/compte")
       } else {
         // Affiche un message d'erreur explicite venant de Supabase
@@ -226,7 +226,7 @@ export function EnhancedRegisterForm() {
         <CardHeader className="space-y-1 text-center">
           <motion.div variants={fieldVariants}>
             <CardTitle className="text-2xl font-bold">Créer un compte</CardTitle>
-            <CardDescription>Rejoignez DjigaFlow et découvrez nos offres exclusives</CardDescription>
+            <CardDescription>Rejoignez JammShop et découvrez nos offres exclusives</CardDescription>
           </motion.div>
 
           {/* Progress Indicator */}
@@ -709,7 +709,7 @@ export function EnhancedRegisterForm() {
                             className="mt-1"
                           />
                           <Label htmlFor="acceptNewsletter" className="text-sm font-normal cursor-pointer leading-relaxed">
-                            Je souhaite recevoir la newsletter DjigaFlow
+                            Je souhaite recevoir la newsletter JammShop
                           </Label>
                         </div>
                       )}

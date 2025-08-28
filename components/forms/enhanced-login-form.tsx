@@ -71,7 +71,7 @@ export function EnhancedLoginForm() {
 
       toast({
         title: "Connexion réussie !",
-        description: "Bienvenue sur DjigaFlow",
+        description: "Bienvenue sur JammShop",
         duration: 3000,
       })
 
@@ -151,7 +151,7 @@ export function EnhancedLoginForm() {
         <CardHeader className="space-y-1 text-center">
           <motion.div variants={fieldVariants}>
             <CardTitle className="text-2xl font-bold">Connexion</CardTitle>
-            <CardDescription>Connectez-vous à votre compte DjigaFlow</CardDescription>
+            <CardDescription>Connectez-vous à votre compte JammShop</CardDescription>
           </motion.div>
         </CardHeader>
 

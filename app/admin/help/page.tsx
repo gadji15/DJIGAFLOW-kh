@@ -68,7 +68,7 @@ const helpCategories: HelpCategory[] = [
   {
     id: "getting-started",
     name: "Premiers pas",
-    description: "Découvrez les bases de DjigaFlow",
+    description: "Découvrez les bases de JammShop",
     icon: Lightbulb,
     color: "bg-blue-100 text-blue-800",
     articleCount: 12,
@@ -135,7 +135,7 @@ const mockArticles: HelpArticle[] = [
   {
     id: "1",
     title: "Comment créer votre première boutique",
-    content: "Guide complet pour configurer votre boutique DjigaFlow...",
+    content: "Guide complet pour configurer votre boutique JammShop...",
     category: "getting-started",
     tags: ["boutique", "configuration", "débutant"],
     difficulty: "beginner",
@@ -144,7 +144,7 @@ const mockArticles: HelpArticle[] = [
     likes: 156,
     dislikes: 8,
     lastUpdated: new Date("2024-01-15"),
-    author: "Équipe DjigaFlow",
+    author: "Équipe JammShop",
     type: "tutorial",
   },
   {
@@ -226,7 +226,7 @@ export default function HelpCenter() {
           </div>
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Centre d'aide DjigaFlow</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Centre d'aide JammShop</h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2">
             Trouvez des réponses, apprenez les meilleures pratiques et maîtrisez votre plateforme
           </p>

@@ -80,7 +80,7 @@ export function AdminNavbar() {
               <Store className="h-5 w-5 text-white" />
             </div>
             <div>
-              <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100">DjigaFlow</h1>
+              <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100">JammShop</h1>
             </div>
           </div>
 
@@ -196,7 +196,7 @@ export function AdminNavbar() {
               <DropdownMenuLabel>
                 <div className="flex flex-col space-y-1">
                   <p className="text-sm font-medium">Admin User</p>
-                  <p className="text-xs text-gray-500">admin@djigaflow.com</p>
+                  <p className="text-xs text-gray-500">JammShop15@gmail.com</p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />

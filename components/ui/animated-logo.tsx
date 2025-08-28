@@ -98,7 +98,7 @@ export function AnimatedLogo({
             "rounded-xl bg-gradient-to-br from-primary via-primary-hover to-secondary flex items-center justify-center shadow-lg",
           )}
         >
-          <span className="text-primary-foreground font-bold text-lg lg:text-xl">D</span>
+          <span className="text-primary-foreground font-bold text-lg lg:text-xl">J</span>
         </div>
         <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
       </motion.div>
@@ -114,7 +114,7 @@ export function AnimatedLogo({
             animate={animated ? "animate" : undefined}
             variants={animated ? textVariants : undefined}
           >
-            DjigaFlow
+            JammShop
           </motion.span>
           <motion.div
             className="text-xs text-muted-foreground font-medium"

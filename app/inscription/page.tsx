@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { EnhancedRegisterForm } from "@/components/forms/enhanced-register-form"
 
 export const metadata: Metadata = {
-  title: "Inscription | DjigaFlow",
-  description: "Créez votre compte DjigaFlow et rejoignez notre communauté pour découvrir nos produits exclusifs.",
+  title: "Inscription | JammShop",
+  description: "Créez votre compte JammShop et rejoignez notre communauté pour découvrir nos produits exclusifs.",
   keywords: ["inscription", "register", "compte", "créer compte"],
 }
 

@@ -227,7 +227,7 @@ export function AdminSidebar() {
             <Store className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">DjigaFlow</h1>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">JammShop</h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">Admin Panel</p>
           </div>
         </div>
@@ -391,7 +391,7 @@ export function AdminSidebar() {
             <Store className="h-5 w-5 text-white" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-900 dark:text-gray-100">DjigaFlow Pro</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-gray-100">JammShop Pro</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 truncate">Version 2.1.0</p>
           </div>
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

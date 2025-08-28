@@ -141,7 +141,7 @@ function MobileAdminLayout({ children }: MobileAdminLayoutProps) {
                 <Store className="h-5 w-5 text-white" />
               </div>
               <div>
-                <h1 className="text-lg font-bold">DjigaFlow</h1>
+                <h1 className="text-lg font-bold">JammShop</h1>
               </div>
             </div>
           </div>
@@ -263,7 +263,7 @@ function MobileMenu({
             <Store className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold">DjigaFlow</h2>
+            <h2 className="text-lg font-semibold">JammShop</h2>
             <p className="text-sm text-muted-foreground">Admin Panel</p>
           </div>
         </div>

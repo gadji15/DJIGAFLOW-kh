@@ -1663,9 +1663,9 @@ CREATE POLICY "Users can update own notifications" ON notifications FOR UPDATE U
 
 -- Insert default system settings
 INSERT INTO system_settings (key, value, description, category, is_public) VALUES
-('site_name', '"DjigaFlow"', 'Nom du site web', 'general', true),
+('site_name', '"JammShop"', 'Nom du site web', 'general', true),
 ('site_description', '"Marketplace professionnel de dropshipping"', 'Description du site', 'general', true),
-('site_url', '"https://djigaflow.com"', 'URL du site web', 'general', true),
+('site_url', '"https://jammshop.com"', 'URL du site web', 'general', true),
 ('default_currency', '"EUR"', 'Devise par défaut', 'general', true),
 ('default_language', '"fr"', 'Langue par défaut', 'general', true),
 ('timezone', '"Europe/Paris"', 'Fuseau horaire par défaut', 'general', false),

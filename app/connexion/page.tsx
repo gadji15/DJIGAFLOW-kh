@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { EnhancedLoginForm } from "@/components/forms/enhanced-login-form"
 
 export const metadata: Metadata = {
-  title: "Connexion | DjigaFlow",
+  title: "Connexion | JammShop",
   description:
-    "Connectez-vous à votre compte DjigaFlow pour accéder à vos commandes et profiter d'une expérience personnalisée.",
+    "Connectez-vous à votre compte JammShop pour accéder à vos commandes et profiter d'une expérience personnalisée.",
   keywords: ["connexion", "login", "compte", "authentification"],
 }
 
