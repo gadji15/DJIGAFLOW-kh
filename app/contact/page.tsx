@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Phone, Mail, MessageSquare, HelpCircle } from "lucide-react"
 import { EnhancedContactForm } from "@/components/forms/enhanced-contact-form"
 import type { Metadata } from "next"
+import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "Contact | JammShop",
@@ -17,16 +18,16 @@ export default function ContactPage() {
   const contactMethods = [
     {
       icon: <Phone className="h-6 w-6" />,
-      title: "Téléphone",
+      title: "Téléphone / WhatsApp",
       description: "Service client disponible 24/7",
-      value: "+33 1 23 45 67 89",
+      value: siteConfig.contact.phone,
       action: "Appeler maintenant",
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
       description: "Réponse sous 2h en moyenne",
-      value: "contact@djigaflow.com",
+      value: siteConfig.contact.email,
       action: "Envoyer un email",
     },
     {
