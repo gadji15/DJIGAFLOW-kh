@@ -4,9 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 export const metadata = {
-  title: "Mentions Légales - DjigaFlow",
-  description: "Mentions légales, informations sur l'entreprise DjigaFlow et obligations légales.",
-  keywords: "mentions légales, DjigaFlow, informations légales, entreprise",
+  title: "Mentions Légales - JammShop",
+  description: "Mentions légales, informations sur l'entreprise JammShop et obligations légales.",
+  keywords: "mentions légales, JammShop, informations légales, entreprise",
 }
 
 export default function LegalPage() {
@@ -21,7 +21,7 @@ export default function LegalPage() {
             </Badge>
             <h1 className="text-4xl font-bold mb-6">Mentions Légales</h1>
             <p className="text-xl text-muted-foreground">
-              Informations légales concernant DjigaFlow et son exploitation
+              Informations légales concernant JammShop et son exploitation
             </p>
           </div>
 
@@ -32,11 +32,12 @@ export default function LegalPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <strong>Raison sociale :</strong> DjigaFlow SAS
+                  <strong>Raison sociale :</strong> JammShop SAS
                   <br />
                   <strong>Forme juridique :</strong> Société par Actions Simplifiée
                   <br />
-                  <strong>Capital social :</strong> 100 000 €<br />
+                  <strong>Capital social :</strong> 100 000 €
+                  <br />
                   <strong>RCS :</strong> Paris B 123 456 789
                   <br />
                   <strong>SIRET :</strong> 123 456 789 00012
@@ -55,7 +56,7 @@ export default function LegalPage() {
                 <div>
                   <strong>Directeur de la publication :</strong> Marie Dubois
                   <br />
-                  <strong>Email :</strong> contact@djigaflow.com
+                  <strong>Email :</strong> contact@jammshop.com
                   <br />
                   <strong>Téléphone :</strong> +33 1 23 45 67 89
                 </div>
@@ -95,9 +96,9 @@ export default function LegalPage() {
                   formellement interdite sauf autorisation expresse du directeur de la publication.
                 </p>
                 <p>
-                  Les marques et logos figurant sur le site sont déposés par DjigaFlow ou éventuellement par ses
+                  Les marques et logos figurant sur le site sont déposés par JammShop ou éventuellement par ses
                   partenaires. Toute reproduction totale ou partielle de ces marques ou de ces logos effectuée à partir
-                  des éléments du site sans l'autorisation expresse de DjigaFlow est donc prohibée.
+                  des éléments du site sans l'autorisation expresse de JammShop est donc prohibée.
                 </p>
               </CardContent>
             </Card>
@@ -113,7 +114,7 @@ export default function LegalPage() {
                 </p>
                 <p>
                   Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir
-                  le signaler par email, à l'adresse contact@djigaflow.com, en décrivant le problème de la manière la
+                  le signaler par email, à l'adresse contact@jammshop.com, en décrivant le problème de la manière la
                   plus précise possible.
                 </p>
                 <p>

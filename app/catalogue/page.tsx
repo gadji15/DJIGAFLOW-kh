@@ -17,7 +17,7 @@ export default function CataloguePage() {
     <div className="flex flex-col min-h-screen">
       <header className="border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-xl font-bold">DjigaFlow</div>
+          <div className="text-xl font-bold">JammShop</div>
           <nav className="hidden md:flex gap-6">
             <Link href="/" className="text-sm font-medium">
               Accueil
@@ -62,7 +62,7 @@ export default function CataloguePage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between">
             <div className="mb-4 md:mb-0">
-              <h3 className="text-lg font-semibold mb-2">DjigaFlow</h3>
+              <h3 className="text-lg font-semibold mb-2">JammShop</h3>
               <p className="text-gray-600">Votre boutique en ligne pour des produits tendance</p>
             </div>
 
@@ -94,7 +94,7 @@ export default function CataloguePage() {
           </div>
 
           <div className="mt-6 pt-6 border-t text-center text-gray-600 text-sm">
-            &copy; 2023 DjigaFlow. Tous droits réservés.
+            &copy; 2023 JammShop. Tous droits réservés.
           </div>
         </div>
       </footer>

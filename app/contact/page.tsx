@@ -8,8 +8,8 @@ import { EnhancedContactForm } from "@/components/forms/enhanced-contact-form"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Contact | DjigaFlow",
-  description: "Contactez l'équipe DjigaFlow pour toute question, support technique ou demande de partenariat.",
+  title: "Contact | JammShop",
+  description: "Contactez l'équipe JammShop pour toute question, support technique ou demande de partenariat.",
   keywords: ["contact", "support", "aide", "service client"],
 }
 

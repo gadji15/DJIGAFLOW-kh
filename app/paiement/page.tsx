@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import { Loader2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Paiement | DjigaFlow",
+  title: "Paiement | JammShop",
   description: "Finalisez votre commande en toute sécurité avec notre système de paiement sécurisé.",
   keywords: ["paiement", "checkout", "commande", "sécurisé"],
 }

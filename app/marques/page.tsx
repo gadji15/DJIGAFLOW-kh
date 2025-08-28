@@ -9,10 +9,10 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Marques - Découvrez nos Partenaires | DjigaFlow",
+  title: "Marques - Découvrez nos Partenaires | JammShop",
   description:
-    "Explorez notre sélection de marques partenaires. Des produits de qualité de marques reconnues mondialement.",
-  keywords: "marques, partenaires, qualité, produits, DjigaFlow, brands",
+    "Découvrez nos marques partenaires et leurs engagements qualité. Produits de confiance sélectionnés avec soin.",
+  keywords: "marques, partenaires, qualité, produits, JammShop, brands",
 }
 
 export default function BrandsPage() {
