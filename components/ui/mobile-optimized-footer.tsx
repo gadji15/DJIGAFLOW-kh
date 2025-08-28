@@ -50,11 +50,13 @@ export function MobileOptimizedFooter() {
   ]
 
   const socialLinks = [
-    { href: "https://www.facebook.com/share/1Ch5odyw8Y/", icon: Facebook, label: "Facebook" },
-    { href: "https://x.com/SunuGain15?t=LiLJSyvhrNgBrnHhCeNftA&s=35", icon: Twitter, label: "Twitter" },
-    { href: "https://www.instagram.com/jammshop15?igsh=MTNyamJlNWRnanB3OA==", icon: Instagram, label: "Instagram" },
-    { href: "https://www.tiktok.com/@jammshop5?_t=ZT-8zFw4JvFPva&_r=1", icon: Youtube, label: "YouTube" },
-  ]
+    { href: siteConfig.social.facebook, icon: Facebook, label: "Facebook" },
+    { href: siteConfig.social.twitter, icon: Twitter, label: "Twitter" },
+    { href: siteConfig.social.instagram, icon: Instagram, label: "Instagram" },
+    { href: siteConfig.social.tiktok, icon: Instagram, label: "TikTok" },
+    { href: siteConfig.social.youtube, icon: Youtube, label: "YouTube" },
+    { href: siteConfig.social.linkedin, icon: Instagram, label: "LinkedIn" },
+  ].filter((s) => !!s.href)
 
   return (
     <footer className="bg-muted/30 border-t">

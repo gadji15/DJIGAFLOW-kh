@@ -85,7 +85,7 @@ export function Footer() {
     { name: "Twitter", href: siteConfig.social.twitter, icon: <Twitter className="h-5 w-5" /> },
     { name: "YouTube", href: siteConfig.social.youtube, icon: <Youtube className="h-5 w-5" /> },
     { name: "LinkedIn", href: siteConfig.social.linkedin, icon: <Linkedin className="h-5 w-5" /> },
-  ]
+  ].filter((s) => !!s.href)
 
   const paymentMethods = ["Visa", "Mastercard", "PayPal", "Apple Pay", "Google Pay", "Klarna"]
 
