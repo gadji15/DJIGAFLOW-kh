@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -47,7 +46,6 @@ export default function AboutPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
@@ -216,7 +214,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }
